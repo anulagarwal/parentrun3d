@@ -16,12 +16,14 @@ public class PlayerCollisionAndTriggerEventsHandler : MonoBehaviour
             PlayerSingleton.Instance.GetPlayerMovementHandler.enabled = false;
             PlayerSingleton.Instance.GetPlayerAnimationsHandler.SwitchAnimation(PlayerAnimationState.Victory);
             LevelManager.Instance.Victory();
+            LevelUIManager.Instance.SwitchUIPanel(UIPanelState.GameOver, GameOverState.Victory);
         }
         else if (other.gameObject.tag == "Obstacle")
         {
             if (other.gameObject.TryGetComponent<ObstacleHandler>(out ObstacleHandler obstacleHandler))
             {
                 PlayerSingleton.Instance.UpdatePlayerEnergy(obstacleHandler.GetEnergy);
+                Destroy(other.gameObject);
             }
         }
     }
