@@ -14,13 +14,16 @@ public class PlayerSingleton : MonoBehaviour
     [SerializeField] private List<string> remarks = new List<string>();
 
     [Header("Components Reference")]
-    [SerializeField] private Image playerEnergyBar = null;
+    [SerializeField] private List<Image> playerEnergyBars = new List<Image>();
     [SerializeField] private PlayerMovementHandler playerMovementHandler = null;
     [SerializeField] private PlayerAnimationsHandler playerAnimationsHandler = null;
     [SerializeField] private TextMeshPro remarkTxt = null;
     [SerializeField] private PlayerGroundCheckersHander playerGroundCheckersHander = null;
 
     private int playerEnergy = 0;
+    private Image playerEnergyBar = null;
+    private int energyBarIndex = 0;
+    private int energyCapTemp = 0;
     #endregion
 
     #region MonoBehaviour Functions
@@ -31,6 +34,13 @@ public class PlayerSingleton : MonoBehaviour
             Destroy(gameObject);
         }
         Instance = this;
+    }
+
+    private void Start()
+    {
+        energyBarIndex = 0;
+        EnableEnergyBar();
+        energyCapTemp = playerEnergyCapacity;
     }
     #endregion
 
@@ -86,6 +96,32 @@ public class PlayerSingleton : MonoBehaviour
         {
             remarkTxt.SetText(remarks[4]);
         }
+
+        if (value >= 1f)
+        {
+            if (energyBarIndex < playerEnergyBars.Count)
+            {
+                energyBarIndex++;
+                EnableEnergyBar();
+            }
+            else
+            {
+                print("Full");
+            }
+        }
+    }
+
+    private void EnableEnergyBar()
+    {
+        foreach (Image i in playerEnergyBars)
+        {
+            i.enabled = false;
+        }
+        playerEnergyBars[energyBarIndex].enabled = true;
+        playerEnergyBar = playerEnergyBars[energyBarIndex];
+        playerEnergyBar.fillAmount = 0;
+        playerEnergyCapacity += energyCapTemp;
     }
     #endregion
+
 }
