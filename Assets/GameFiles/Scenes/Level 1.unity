@@ -123,17 +123,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!114 &37207610 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1306028046, guid: 334949a6518cec54e800f0ee8ebf6b9b, type: 3}
-  m_PrefabInstance: {fileID: 6206030353584506212}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &51272338
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -424,7 +413,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee6c8723926d00942b57bcf4a0f4498e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  energy: 20
+  energy: 10
   obstacleState: 0
 --- !u!65 &163151575
 BoxCollider:
@@ -690,7 +679,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee6c8723926d00942b57bcf4a0f4498e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  energy: 30
+  energy: 15
   obstacleState: 0
 --- !u!65 &240671834
 BoxCollider:
@@ -947,7 +936,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee6c8723926d00942b57bcf4a0f4498e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  energy: 30
+  energy: 15
   obstacleState: 0
 --- !u!65 &350517438
 BoxCollider:
@@ -1045,7 +1034,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee6c8723926d00942b57bcf4a0f4498e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  energy: -30
+  energy: 10
   obstacleState: 1
 --- !u!65 &394174227
 BoxCollider:
@@ -1210,7 +1199,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee6c8723926d00942b57bcf4a0f4498e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  energy: -30
+  energy: 10
   obstacleState: 1
 --- !u!65 &464181098
 BoxCollider:
@@ -1247,7 +1236,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee6c8723926d00942b57bcf4a0f4498e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  energy: -30
+  energy: 10
   obstacleState: 1
 --- !u!65 &482134859
 BoxCollider:
@@ -1350,7 +1339,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee6c8723926d00942b57bcf4a0f4498e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  energy: 20
+  energy: 10
   obstacleState: 0
 --- !u!65 &537771093
 BoxCollider:
@@ -1387,7 +1376,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee6c8723926d00942b57bcf4a0f4498e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  energy: -30
+  energy: 10
   obstacleState: 1
 --- !u!65 &599355857
 BoxCollider:
@@ -1570,7 +1559,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee6c8723926d00942b57bcf4a0f4498e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  energy: -30
+  energy: 10
   obstacleState: 1
 --- !u!65 &765638174
 BoxCollider:
@@ -1668,7 +1657,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee6c8723926d00942b57bcf4a0f4498e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  energy: 30
+  energy: 15
   obstacleState: 0
 --- !u!65 &898982117
 BoxCollider:
@@ -1766,7 +1755,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee6c8723926d00942b57bcf4a0f4498e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  energy: 30
+  energy: 15
   obstacleState: 0
 --- !u!65 &921819250
 BoxCollider:
@@ -2103,7 +2092,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee6c8723926d00942b57bcf4a0f4498e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  energy: -30
+  energy: 10
   obstacleState: 1
 --- !u!65 &1048463983
 BoxCollider:
@@ -2423,7 +2412,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee6c8723926d00942b57bcf4a0f4498e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  energy: 30
+  energy: 15
   obstacleState: 0
 --- !u!65 &1136571557
 BoxCollider:
@@ -2619,7 +2608,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee6c8723926d00942b57bcf4a0f4498e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  energy: 30
+  energy: 15
   obstacleState: 0
 --- !u!65 &1182608413
 BoxCollider:
@@ -2722,7 +2711,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee6c8723926d00942b57bcf4a0f4498e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  energy: 20
+  energy: 10
   obstacleState: 0
 --- !u!65 &1192256752
 BoxCollider:
@@ -2759,7 +2748,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee6c8723926d00942b57bcf4a0f4498e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  energy: 20
+  energy: 10
   obstacleState: 0
 --- !u!65 &1261695136
 BoxCollider:
@@ -3090,7 +3079,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee6c8723926d00942b57bcf4a0f4498e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  energy: 20
+  energy: 10
   obstacleState: 0
 --- !u!65 &1444911324
 BoxCollider:
@@ -3127,7 +3116,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee6c8723926d00942b57bcf4a0f4498e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  energy: -30
+  energy: 10
   obstacleState: 1
 --- !u!65 &1497169463
 BoxCollider:
@@ -3554,7 +3543,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee6c8723926d00942b57bcf4a0f4498e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  energy: 20
+  energy: 10
   obstacleState: 0
 --- !u!65 &1750680460
 BoxCollider:
@@ -3713,7 +3702,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee6c8723926d00942b57bcf4a0f4498e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  energy: 30
+  energy: 15
   obstacleState: 0
 --- !u!65 &1859911180
 BoxCollider:
@@ -3750,7 +3739,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee6c8723926d00942b57bcf4a0f4498e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  energy: 20
+  energy: 10
   obstacleState: 0
 --- !u!65 &1918597474
 BoxCollider:
@@ -4362,14 +4351,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 372704360272946364, guid: 334949a6518cec54e800f0ee8ebf6b9b, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 372704360272946364, guid: 334949a6518cec54e800f0ee8ebf6b9b, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -1.72
-      objectReference: {fileID: 0}
     - target: {fileID: 5884664041691194569, guid: 334949a6518cec54e800f0ee8ebf6b9b, type: 3}
       propertyPath: m_RootOrder
       value: 6
@@ -4414,38 +4395,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6206030352716605129, guid: 334949a6518cec54e800f0ee8ebf6b9b, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6206030352716605129, guid: 334949a6518cec54e800f0ee8ebf6b9b, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6206030352716605129, guid: 334949a6518cec54e800f0ee8ebf6b9b, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6206030352716605129, guid: 334949a6518cec54e800f0ee8ebf6b9b, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.072
-      objectReference: {fileID: 0}
     - target: {fileID: 6548610338272902771, guid: 334949a6518cec54e800f0ee8ebf6b9b, type: 3}
       propertyPath: m_Name
       value: Player_Rigged
       objectReference: {fileID: 0}
-    - target: {fileID: 6548610338272902781, guid: 334949a6518cec54e800f0ee8ebf6b9b, type: 3}
-      propertyPath: rotSpeed
-      value: 500
-      objectReference: {fileID: 0}
-    - target: {fileID: 6548610338272902783, guid: 334949a6518cec54e800f0ee8ebf6b9b, type: 3}
-      propertyPath: playerEnergyBars.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6548610338272902783, guid: 334949a6518cec54e800f0ee8ebf6b9b, type: 3}
-      propertyPath: playerEnergyBars.Array.data[0]
-      value: 
-      objectReference: {fileID: 37207610}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 334949a6518cec54e800f0ee8ebf6b9b, type: 3}
 --- !u!4 &6206030353584506213 stripped
