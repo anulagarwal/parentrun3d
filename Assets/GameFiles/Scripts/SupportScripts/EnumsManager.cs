@@ -25,3 +25,13 @@ public enum ObstacleState
     Plus,
     Minus
 };
+
+public enum BabyState
+{
+    Idle,
+    Crying,
+    Laughing,
+    Happy,
+    Angry,
+    Sleeping
+};
