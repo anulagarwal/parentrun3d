@@ -15,6 +15,7 @@ public class PlayerCollisionAndTriggerEventsHandler : MonoBehaviour
         {
             PlayerSingleton.Instance.GetPlayerMovementHandler.enabled = false;
             PlayerSingleton.Instance.GetPlayerAnimationsHandler.SwitchAnimation(PlayerAnimationState.Victory);
+            BabySingleton.Instance.GetBabyAnimationsHandler.SwitchBabyAnimations(BabyState.Sleeping);
             LevelManager.Instance.Victory();
             LevelUIManager.Instance.SwitchUIPanel(UIPanelState.GameOver, GameOverState.Victory);
         }
@@ -22,8 +23,26 @@ public class PlayerCollisionAndTriggerEventsHandler : MonoBehaviour
         {
             if (other.gameObject.TryGetComponent<ObstacleHandler>(out ObstacleHandler obstacleHandler))
             {
+                if (obstacleHandler.GetEnergy < 0)
+                {
+                    BabySingleton.Instance.GetBabyAnimationsHandler.SwitchBabyAnimations(BabyState.Crying);
+                }
+                else if (obstacleHandler.GetEnergy > 0)
+                {
+                    BabySingleton.Instance.GetBabyAnimationsHandler.SwitchBabyAnimations(BabyState.Happy);
+                }
                 PlayerSingleton.Instance.UpdatePlayerEnergy(obstacleHandler.GetEnergy);
                 Destroy(other.gameObject);
+            }
+        }
+
+        else if (other.gameObject.tag == "Gate")
+        {
+            if (other.gameObject.TryGetComponent<GateHandler>(out GateHandler gateHandler))
+            {
+                BabySingleton.Instance.GetBabyAnimationsHandler.SwitchBabyAnimations(gateHandler.GetBabyState);
+                PlayerSingleton.Instance.UpdatePlayerEnergy(gateHandler.GetEnergy);
+
             }
         }
     }

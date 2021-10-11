@@ -22,42 +22,42 @@ public class BabyAnimationsHandler : MonoBehaviour
                 animator.SetBool("b_Angry", false);
                 animator.SetBool("b_Happy", false);
                 animator.SetBool("b_Laugh", false);
-                animator.SetBool("b_Sleep", false);
+                animator.SetBool("b_Clap", false);
                 break;
             case BabyState.Crying:
                 animator.SetBool("b_Cry", true);
                 animator.SetBool("b_Angry", false);
                 animator.SetBool("b_Happy", false);
                 animator.SetBool("b_Laugh", false);
-                animator.SetBool("b_Sleep", false);
+                animator.SetBool("b_Clap", false);
                 break;
             case BabyState.Angry:
                 animator.SetBool("b_Cry", false);
                 animator.SetBool("b_Angry", true);
                 animator.SetBool("b_Happy", false);
                 animator.SetBool("b_Laugh", false);
-                animator.SetBool("b_Sleep", false);
+                animator.SetBool("b_Clap", false);
                 break;
             case BabyState.Happy:
                 animator.SetBool("b_Cry", false);
                 animator.SetBool("b_Angry", false);
                 animator.SetBool("b_Happy", true);
                 animator.SetBool("b_Laugh", false);
-                animator.SetBool("b_Sleep", false);
+                animator.SetBool("b_Clap", false);
                 break;
             case BabyState.Laughing:
                 animator.SetBool("b_Cry", false);
                 animator.SetBool("b_Angry", false);
                 animator.SetBool("b_Happy", false);
                 animator.SetBool("b_Laugh", true);
-                animator.SetBool("b_Sleep", false);
+                animator.SetBool("b_Clap", false);
                 break;
             case BabyState.Sleeping:
                 animator.SetBool("b_Cry", false);
                 animator.SetBool("b_Angry", false);
                 animator.SetBool("b_Happy", false);
                 animator.SetBool("b_Laugh", false);
-                animator.SetBool("b_Sleep", true);
+                animator.SetBool("b_Clap", true);
                 break;
         }
     }
