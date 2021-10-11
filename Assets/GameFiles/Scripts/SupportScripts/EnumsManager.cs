@@ -33,5 +33,5 @@ public enum BabyState
     Laughing,
     Happy,
     Angry,
-    Sleeping
+    Clap
 };

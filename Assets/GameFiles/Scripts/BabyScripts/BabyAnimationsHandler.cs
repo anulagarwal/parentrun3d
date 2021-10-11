@@ -52,7 +52,7 @@ public class BabyAnimationsHandler : MonoBehaviour
                 animator.SetBool("b_Laugh", true);
                 animator.SetBool("b_Clap", false);
                 break;
-            case BabyState.Sleeping:
+            case BabyState.Clap:
                 animator.SetBool("b_Cry", false);
                 animator.SetBool("b_Angry", false);
                 animator.SetBool("b_Happy", false);
