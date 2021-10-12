@@ -56,7 +56,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  - {fileID: 9033595124954271570, guid: 3865a7a8715ec45e0b326119fb902c1a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -102,8 +102,8 @@ MonoBehaviour:
 
 '
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 3865a7a8715ec45e0b326119fb902c1a, type: 2}
+  m_sharedMaterial: {fileID: 9033595124954271570, guid: 3865a7a8715ec45e0b326119fb902c1a, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -127,8 +127,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 5
-  m_fontSizeBase: 5
+  m_fontSize: 6
+  m_fontSizeBase: 6
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1256,6 +1256,32 @@ Transform:
   m_Father: {fileID: 5995652135962121037}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2120518788
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6206030354013428810}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89891f2688285a04b9b9c3c7db56bef9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  babyAnimationsHandler: {fileID: 2120518789}
+--- !u!114 &2120518789
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6206030354013428810}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cff0b2dda58525b45a7d170e11611e08, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 6206030354022725986}
 --- !u!1 &6423609872823426344
 GameObject:
   m_ObjectHideFlags: 0
@@ -1305,7 +1331,6 @@ GameObject:
   - component: {fileID: 6548610338272902781}
   - component: {fileID: 6548610338272902782}
   - component: {fileID: 8484996517373289941}
-  - component: {fileID: 426439577049980507}
   m_Layer: 0
   m_Name: Player_Rigged
   m_TagString: Untagged
@@ -1449,42 +1474,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c4b5e81e12343d4097aaaf357a4bf14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!59 &426439577049980507
-HingeJoint:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6548610338272902771}
-  m_ConnectedBody: {fileID: 0}
-  m_ConnectedArticulationBody: {fileID: 0}
-  m_Anchor: {x: 0, y: 0, z: 0}
-  m_Axis: {x: 1, y: 0, z: 0}
-  m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0, y: 0, z: 0}
-  m_UseSpring: 0
-  m_Spring:
-    spring: 0
-    damper: 0
-    targetPosition: 0
-  m_UseMotor: 0
-  m_Motor:
-    targetVelocity: 0
-    force: 0
-    freeSpin: 0
-  m_UseLimits: 0
-  m_Limits:
-    min: 0
-    max: 0
-    bounciness: 0
-    bounceMinVelocity: 0.2
-    contactDistance: 0
-  m_BreakForce: Infinity
-  m_BreakTorque: Infinity
-  m_EnableCollision: 0
-  m_EnablePreprocessing: 1
-  m_MassScale: 1
-  m_ConnectedMassScale: 1
 --- !u!1 &6984329187573077609
 GameObject:
   m_ObjectHideFlags: 0
@@ -2054,8 +2043,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9507610, guid: 3fb2e1bb9d6b66f4885f7ec5593770f0, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: d75b1b7a6729f8f448204197fddfcd51, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3fb2e1bb9d6b66f4885f7ec5593770f0, type: 3}
+--- !u!95 &6206030354022725986 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 9507610, guid: 3fb2e1bb9d6b66f4885f7ec5593770f0, type: 3}
+  m_PrefabInstance: {fileID: 6206030354013350520}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &6206030354013428810 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 194098, guid: 3fb2e1bb9d6b66f4885f7ec5593770f0, type: 3}
+  m_PrefabInstance: {fileID: 6206030354013350520}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6206030354407839970
 PrefabInstance:
   m_ObjectHideFlags: 0
