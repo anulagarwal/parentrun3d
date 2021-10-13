@@ -76,7 +76,7 @@ public class PlayerSingleton : MonoBehaviour
     {
         playerEnergyBar.fillAmount = value;
 
-        if (value <= 0.2f)
+       /* if (value <= 0.2f)
         {
             remarkTxt.SetText(remarks[0]);
         }
@@ -96,7 +96,7 @@ public class PlayerSingleton : MonoBehaviour
         {
             remarkTxt.SetText(remarks[4]);
         }
-
+       */
         if (value >= 1f)
         {
             if (energyBarIndex < playerEnergyBars.Count)
@@ -117,7 +117,9 @@ public class PlayerSingleton : MonoBehaviour
         {
             i.enabled = false;
         }
-        playerEnergyBars[energyBarIndex].enabled = true;
+       playerEnergyBars[energyBarIndex].enabled = true;
+        remarkTxt.SetText(remarks[energyBarIndex]);
+
         playerEnergyBar = playerEnergyBars[energyBarIndex];
         playerEnergyBar.fillAmount = 0;
         playerEnergyCapacity += energyCapTemp;
