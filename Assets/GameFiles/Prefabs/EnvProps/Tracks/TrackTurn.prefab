@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5296509883653439725}
   - component: {fileID: 4505201847792798697}
+  - component: {fileID: 1442514674164343134}
   m_Layer: 0
   m_Name: TurnTrigger
   m_TagString: Turn
@@ -44,6 +45,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 10, y: 2, z: 1}
   m_Center: {x: 0, y: 1, z: 0}
+--- !u!114 &1442514674164343134
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 846421987903135550}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5c8d556391a25340b8bad5b7eff7cbe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  turnAngle: 90
 --- !u!1 &8914662892529391848
 GameObject:
   m_ObjectHideFlags: 0
