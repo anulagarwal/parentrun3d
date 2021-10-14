@@ -7,6 +7,9 @@ public class BabySingleton : MonoBehaviour
     #region Porperties
     public static BabySingleton Instance = null;
 
+    [Header("Attributes")]
+    [SerializeField] private float scaleSpeed = 0f;
+
     [Header("Components Reference")]
     [SerializeField] private BabyAnimationsHandler babyAnimationsHandler = null;
     #endregion
@@ -24,5 +27,17 @@ public class BabySingleton : MonoBehaviour
 
     #region Getter And Setter
     public BabyAnimationsHandler GetBabyAnimationsHandler { get => babyAnimationsHandler; }
+    #endregion
+
+    #region Public Core Functions
+    public void ScaleUpBaby()
+    {
+        this.transform.localScale += Vector3.one * scaleSpeed;
+    }
+
+    public void ScaleDownBaby()
+    {
+        this.transform.localScale -= Vector3.one * scaleSpeed;
+    }
     #endregion
 }

@@ -9,7 +9,7 @@ public class PlayerCollisionAndTriggerEventsHandler : MonoBehaviour
     {
         if (other.gameObject.tag == "Turn")
         {
-            PlayerSingleton.Instance.GetPlayerMovementHandler.EnablePlayerPathTurn(true, 90);
+            PlayerSingleton.Instance.GetPlayerMovementHandler.EnablePlayerPathTurn(true, other.gameObject.GetComponent<TurnTriggerHandler>().GetTurnAngle);
         }
         else if (other.gameObject.tag == "Finish")
         {
@@ -25,10 +25,12 @@ public class PlayerCollisionAndTriggerEventsHandler : MonoBehaviour
             {
                 if (obstacleHandler.GetEnergy < 0)
                 {
+                    BabySingleton.Instance.ScaleDownBaby();
                     BabySingleton.Instance.GetBabyAnimationsHandler.SwitchBabyAnimations(BabyState.Crying);
                 }
                 else if (obstacleHandler.GetEnergy > 0)
                 {
+                    BabySingleton.Instance.ScaleUpBaby();
                     BabySingleton.Instance.GetBabyAnimationsHandler.SwitchBabyAnimations(BabyState.Happy);
                 }
                 PlayerSingleton.Instance.UpdatePlayerEnergy(obstacleHandler.GetEnergy);
