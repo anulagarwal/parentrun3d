@@ -25,7 +25,7 @@ public class BabyMovementHandler : MonoBehaviour
         transform.Translate(Vector3.forward * Time.deltaTime * moveSpeed);
         transform.localScale -= Vector3.one * Time.deltaTime * scaleDownSpeed;
 
-        if (transform.localScale.x <= 2)
+        if (transform.localScale.x <= 3.3f)
         {
             LevelUIManager.Instance.SwitchUIPanel(UIPanelState.GameOver, GameOverState.Victory);
             PlayerSingleton.Instance.GetPlayerMovementHandler.enabled = false;

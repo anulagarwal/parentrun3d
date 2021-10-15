@@ -19,7 +19,6 @@ public class PlayerSingleton : MonoBehaviour
     [SerializeField] private PlayerAnimationsHandler playerAnimationsHandler = null;
     [SerializeField] private TextMeshPro remarkTxt = null;
     [SerializeField] private PlayerGroundCheckersHander playerGroundCheckersHander = null;
-    [SerializeField] private GameObject playerHingeJoint = null;
     [SerializeField] private GameObject playerCart = null;
     [SerializeField] private Transform groundPointTransform = null;
 
@@ -77,7 +76,6 @@ public class PlayerSingleton : MonoBehaviour
 
     public void EnablePlayerHingeJoint(bool value)
     {
-        playerHingeJoint.SetActive(value);
         playerCart.SetActive(value);
     }
     #endregion
