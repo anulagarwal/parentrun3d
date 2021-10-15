@@ -42,3 +42,9 @@ public enum CMCV
     PlayerCMCV,
     BabyCMCV
 };
+
+public enum PlayerSpeedType
+{
+    Normal,
+    SlowDown
+};
