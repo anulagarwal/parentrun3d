@@ -9,7 +9,9 @@ public class PlayerMovementHandler : MonoBehaviour
     [SerializeField] private float moveSpeed = 0f;
     [SerializeField] private float turnSpeed = 0f;
     [SerializeField] private float rotSpeed = 0f;
+    [SerializeField] private float slowDownSpeed = 0f;
 
+    private float speedTemp = 0f;
     private Vector3 movementDirection = Vector3.zero;
     private Quaternion newTurnRotation = Quaternion.identity;
     private VariableJoystick movementJS = null;
@@ -25,6 +27,7 @@ public class PlayerMovementHandler : MonoBehaviour
     #region MonoBehaviour Functions
     private void Start()
     {
+        SwitchSpeed(PlayerSpeedType.Normal);
         EnablePlayerTranslation(true);
         movementJS = LevelUIManager.Instance.GetMovementJS;
         PlayerSingleton.Instance.GetPlayerAnimationsHandler.SwitchAnimation(PlayerAnimationState.Run);
@@ -65,7 +68,7 @@ public class PlayerMovementHandler : MonoBehaviour
             }
         }
 
-        transform.Translate(movementDirection * Time.deltaTime * moveSpeed, Space.Self);
+        transform.Translate(movementDirection * Time.deltaTime * speedTemp, Space.Self);
     }
 
     private void PlayerPathTurn()
@@ -135,6 +138,18 @@ public class PlayerMovementHandler : MonoBehaviour
         else
         {
             playerMovementCore -= PlayerPathTurn;
+        }
+    }
+
+    public void SwitchSpeed(PlayerSpeedType type)
+    {
+        if (type == PlayerSpeedType.Normal)
+        {
+            speedTemp = moveSpeed;
+        }
+        else if (type == PlayerSpeedType.SlowDown)
+        {
+            speedTemp = slowDownSpeed;
         }
     }
     #endregion

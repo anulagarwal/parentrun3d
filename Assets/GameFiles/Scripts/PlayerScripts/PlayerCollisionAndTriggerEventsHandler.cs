@@ -41,7 +41,6 @@ public class PlayerCollisionAndTriggerEventsHandler : MonoBehaviour
                 Destroy(other.gameObject);
             }
         }
-
         else if (other.gameObject.tag == "Gate")
         {
             if (other.gameObject.TryGetComponent<GateHandler>(out GateHandler gateHandler))
@@ -50,6 +49,18 @@ public class PlayerCollisionAndTriggerEventsHandler : MonoBehaviour
                 PlayerSingleton.Instance.UpdatePlayerEnergy(gateHandler.GetEnergy);
 
             }
+        }
+        else if (other.gameObject.tag == "Path")
+        {
+            PlayerSingleton.Instance.GetPlayerMovementHandler.SwitchSpeed(PlayerSpeedType.SlowDown);
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.tag == "Path")
+        {
+            PlayerSingleton.Instance.GetPlayerMovementHandler.SwitchSpeed(PlayerSpeedType.Normal);
         }
     }
     #endregion
