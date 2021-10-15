@@ -17,7 +17,11 @@ public class PlayerCollisionAndTriggerEventsHandler : MonoBehaviour
             PlayerSingleton.Instance.GetPlayerAnimationsHandler.SwitchAnimation(PlayerAnimationState.Victory);
             BabySingleton.Instance.GetBabyAnimationsHandler.SwitchBabyAnimations(BabyState.Clap);
             LevelManager.Instance.Victory();
-            LevelUIManager.Instance.SwitchUIPanel(UIPanelState.GameOver, GameOverState.Victory);
+            //LevelUIManager.Instance.SwitchUIPanel(UIPanelState.GameOver, GameOverState.Victory);
+
+            BabySingleton.Instance.DerackBaby();
+            PlayerSingleton.Instance.EnablePlayerHingeJoint(false);
+            Invoke("MoveToEndPoint", 2f);
         }
         else if (other.gameObject.tag == "Obstacle")
         {
@@ -47,6 +51,14 @@ public class PlayerCollisionAndTriggerEventsHandler : MonoBehaviour
 
             }
         }
+    }
+    #endregion
+
+    #region Invoke Functions
+    private void MoveToEndPoint()
+    {
+        PlayerSingleton.Instance.GetPlayerMovementHandler.enabled = true;
+        PlayerSingleton.Instance.GetPlayerMovementHandler.EnablePlayerMoveTowardsMechanic(true);
     }
     #endregion
 }

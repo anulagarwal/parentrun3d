@@ -19,6 +19,9 @@ public class PlayerSingleton : MonoBehaviour
     [SerializeField] private PlayerAnimationsHandler playerAnimationsHandler = null;
     [SerializeField] private TextMeshPro remarkTxt = null;
     [SerializeField] private PlayerGroundCheckersHander playerGroundCheckersHander = null;
+    [SerializeField] private GameObject playerHingeJoint = null;
+    [SerializeField] private GameObject playerCart = null;
+    [SerializeField] private Transform groundPointTransform = null;
 
     private int playerEnergy = 0;
     private Image playerEnergyBar = null;
@@ -52,6 +55,8 @@ public class PlayerSingleton : MonoBehaviour
     public PlayerAnimationsHandler GetPlayerAnimationsHandler { get => playerAnimationsHandler; }
 
     public PlayerGroundCheckersHander GetPlayerGroundCheckersHander { get => playerGroundCheckersHander; }
+    
+    public Transform GetGroundPointTransform { get => groundPointTransform; }
     #endregion
 
     #region Public Core Functions
@@ -68,6 +73,12 @@ public class PlayerSingleton : MonoBehaviour
         }
 
         UpdateEnergyBar((float)playerEnergy / (float)playerEnergyCapacity);
+    }
+
+    public void EnablePlayerHingeJoint(bool value)
+    {
+        playerHingeJoint.SetActive(value);
+        playerCart.SetActive(value);
     }
     #endregion
 

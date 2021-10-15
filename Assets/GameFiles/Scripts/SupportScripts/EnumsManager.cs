@@ -33,5 +33,12 @@ public enum BabyState
     Laughing,
     Happy,
     Angry,
-    Clap
+    Clap,
+    Walk
+};
+
+public enum CMCV
+{
+    PlayerCMCV,
+    BabyCMCV
 };

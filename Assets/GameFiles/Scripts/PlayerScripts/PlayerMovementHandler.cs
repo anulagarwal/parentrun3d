@@ -80,6 +80,21 @@ public class PlayerMovementHandler : MonoBehaviour
             EnablePlayerPathTurn(false);
         }
     }
+
+    private void PlayerMoveTowardsMechanic()
+    {
+        if (Vector3.Distance(transform.position, FinishTrackSingleton.Instance.GetTrackEndPoint.position) >= 0.5f)
+        {
+            transform.position = Vector3.MoveTowards(transform.position, FinishTrackSingleton.Instance.GetTrackEndPoint.position, Time.deltaTime * moveSpeed);
+        }
+        else
+        {
+            LevelManager.Instance.SwitchCMCV(CMCV.BabyCMCV);
+            playerMovementCore = null;
+            EnablePlayerTranslation(true);
+            BabySingleton.Instance.GetBabyMovementHandler.enabled = true;
+        }
+    }
     #endregion
 
     #region Public Core Functions
@@ -87,11 +102,25 @@ public class PlayerMovementHandler : MonoBehaviour
     {
         if (value)
         {
+            PlayerSingleton.Instance.GetPlayerAnimationsHandler.SwitchAnimation(PlayerAnimationState.Run);
             playerMovementCore += PlayerTranslation;
         }
         else
         {
+            PlayerSingleton.Instance.GetPlayerAnimationsHandler.SwitchAnimation(PlayerAnimationState.Idle);
             playerMovementCore -= PlayerTranslation;
+        }
+    }
+
+    public void EnablePlayerMoveTowardsMechanic(bool value)
+    {
+        if (value)
+        {
+            playerMovementCore += PlayerMoveTowardsMechanic;
+        }
+        else
+        {
+            playerMovementCore -= PlayerMoveTowardsMechanic;
         }
     }
 
