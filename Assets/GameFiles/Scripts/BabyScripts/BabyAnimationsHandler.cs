@@ -7,6 +7,12 @@ public class BabyAnimationsHandler : MonoBehaviour
     #region Properties
     [Header("Components Reference")]
     [SerializeField] private Animator animator = null;
+    [SerializeField] private GameObject pukeVfx;
+    [SerializeField] private GameObject cryVFX;
+    [SerializeField] private GameObject steamVFX;
+
+
+
     #endregion
 
     #region MonoBehaviour Functions
@@ -32,6 +38,9 @@ public class BabyAnimationsHandler : MonoBehaviour
                 animator.SetBool("b_Laugh", false);
                 animator.SetBool("b_Clap", false);
                 animator.SetBool("b_Walk", false);
+                cryVFX.SetActive(true);
+                pukeVfx.SetActive(false);
+               // steamVFX.SetActive(false);
                 break;
             case BabyState.Angry:
                 animator.SetBool("b_Cry", false);
@@ -72,6 +81,18 @@ public class BabyAnimationsHandler : MonoBehaviour
                 animator.SetBool("b_Laugh", false);
                 animator.SetBool("b_Clap", false);
                 animator.SetBool("b_Walk", true);
+                break;
+
+                
+            case BabyState.Puking:
+                animator.SetBool("b_Cry", true);
+                animator.SetBool("b_Angry", false);
+                animator.SetBool("b_Happy", false);
+                animator.SetBool("b_Laugh", false);
+                animator.SetBool("b_Clap", false);
+                animator.SetBool("b_Walk", false);
+                cryVFX.SetActive(false);
+                pukeVfx.SetActive(true);
                 break;
         }
     }

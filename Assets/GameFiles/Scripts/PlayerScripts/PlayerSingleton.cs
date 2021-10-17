@@ -11,6 +11,8 @@ public class PlayerSingleton : MonoBehaviour
 
     [Header("Attributes")]
     [SerializeField] private int playerEnergyCapacity = 0;
+    [SerializeField] private float lerpSpeed = 4;
+
     [SerializeField] private List<string> remarks = new List<string>();
 
     [Header("Components Reference")]
@@ -26,6 +28,7 @@ public class PlayerSingleton : MonoBehaviour
     private Image playerEnergyBar = null;
     private int energyBarIndex = 0;
     private int energyCapTemp = 0;
+    private int targetEnergy;
     #endregion
 
     #region MonoBehaviour Functions
@@ -43,6 +46,7 @@ public class PlayerSingleton : MonoBehaviour
         energyBarIndex = 0;
         EnableEnergyBar();
         energyCapTemp = playerEnergyCapacity;
+        targetEnergy = playerEnergy;
     }
     #endregion
 
@@ -58,20 +62,28 @@ public class PlayerSingleton : MonoBehaviour
     public Transform GetGroundPointTransform { get => groundPointTransform; }
     #endregion
 
+
+    private void Update()
+    {
+        playerEnergy =  Mathf.FloorToInt(Mathf.Lerp(playerEnergy, targetEnergy, lerpSpeed));
+        UpdateEnergyBar((float)playerEnergy / (float)playerEnergyCapacity);
+
+    }
     #region Public Core Functions
     public void UpdatePlayerEnergy(int amount)
     {
-        playerEnergy += amount;
-        if (playerEnergy > playerEnergyCapacity)
+        targetEnergy += amount;
+        if (targetEnergy > playerEnergyCapacity)
         {
-            playerEnergy = playerEnergyCapacity;
-        }
-        else if (playerEnergy < 0)
-        {
-            playerEnergy = 0;
-        }
+            UpdateEnergyBar((float)targetEnergy / (float)playerEnergyCapacity);
+            targetEnergy = 0;
 
-        UpdateEnergyBar((float)playerEnergy / (float)playerEnergyCapacity);
+
+        }
+        else if (targetEnergy < 0)
+        {
+            targetEnergy = 0;
+        }
     }
 
     public void EnablePlayerHingeJoint(bool value)

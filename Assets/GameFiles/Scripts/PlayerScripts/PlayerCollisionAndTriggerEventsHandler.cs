@@ -47,7 +47,6 @@ public class PlayerCollisionAndTriggerEventsHandler : MonoBehaviour
             {
                 BabySingleton.Instance.GetBabyAnimationsHandler.SwitchBabyAnimations(gateHandler.GetBabyState);
                 PlayerSingleton.Instance.UpdatePlayerEnergy(gateHandler.GetEnergy);
-
             }
         }
         else if (other.gameObject.tag == "Path")

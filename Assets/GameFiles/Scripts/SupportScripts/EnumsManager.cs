@@ -34,7 +34,9 @@ public enum BabyState
     Happy,
     Angry,
     Clap,
-    Walk
+    Walk,
+    Puking,
+    HotFace
 };
 
 public enum CMCV
