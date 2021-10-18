@@ -50,3 +50,9 @@ public enum PlayerSpeedType
     Normal,
     SlowDown
 };
+
+public enum BabyFaceColor
+{
+    White,
+    Red
+};

@@ -4168,6 +4168,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerEnergyCapacity: 100
+  lerpSpeed: 4
   remarks:
   - VERY HUNGRY
   - HUNGRY
@@ -4197,6 +4198,7 @@ MonoBehaviour:
   moveSpeed: 15
   turnSpeed: 2
   rotSpeed: 500
+  slowDownSpeed: 8
 --- !u!114 &8515055196002887229
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7464,6 +7466,7 @@ GameObject:
   - component: {fileID: 3227633968807990471}
   - component: {fileID: 8857142614226322440}
   - component: {fileID: 3227633968807990470}
+  - component: {fileID: 7046274648674181641}
   m_Layer: 0
   m_Name: ToonBabyA (13)
   m_TagString: Untagged
@@ -7552,6 +7555,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 8857142614218809633}
+  pukeVfx: {fileID: 0}
+  cryVFX: {fileID: 0}
+  steamVFX: {fileID: 0}
+--- !u!114 &7046274648674181641
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8857142614226322441}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4bd7273624f34aa42a756a533fc15598, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lerpSpeed: 5
+  defaultColor: {r: 1, g: 1, b: 1, a: 1}
+  hotRedColor: {r: 1, g: 0.30566037, b: 0.30566037, a: 1}
+  babyFaceMeshRenderer: {fileID: 8857142614214633065}
 --- !u!1 &8857142614226322619
 GameObject:
   m_ObjectHideFlags: 0
@@ -8889,7 +8911,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 982d88a577e675742af904cf766f413d, type: 2}
+  - {fileID: 2100000, guid: 4016440b535fe9e4989afb21c45f5eae, type: 2}
   - {fileID: 2100000, guid: f93c991042f5e004fa5f82b2d7e0a679, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
