@@ -77,8 +77,6 @@ public class PlayerSingleton : MonoBehaviour
         {
             UpdateEnergyBar((float)targetEnergy / (float)playerEnergyCapacity);
             targetEnergy = 0;
-
-
         }
         else if (targetEnergy < 0)
         {
@@ -128,6 +126,18 @@ public class PlayerSingleton : MonoBehaviour
             else
             {
                 print("Full");
+            }
+        }
+        else if (value <= 0f)
+        {
+            if (energyBarIndex > 0)
+            {
+                energyBarIndex--;
+                EnableEnergyBar();
+            }
+            else
+            {
+                print("Empty");
             }
         }
     }
