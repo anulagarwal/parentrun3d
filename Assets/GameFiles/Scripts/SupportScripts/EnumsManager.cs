@@ -36,7 +36,9 @@ public enum BabyState
     Clap,
     Walk,
     Puking,
-    HotFace
+    HotFace,
+    Sleep,
+    LieCry
 };
 
 public enum CMCV
@@ -55,4 +57,10 @@ public enum BabyFaceColor
 {
     White,
     Red
+};
+
+public enum ShowerType
+{
+    Hot,
+    Cold
 };

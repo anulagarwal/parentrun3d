@@ -119,6 +119,26 @@ public class BabyAnimationsHandler : MonoBehaviour
                 //steamVFX.SetActive(true);
                 BabySingleton.Instance.GetBabyRendererHandler.SwitchColor(BabyFaceColor.Red);
                 break;
+            case BabyState.LieCry:
+                animator.SetBool("b_Cry", false);
+                animator.SetBool("b_Angry", false);
+                animator.SetBool("b_Happy", false);
+                animator.SetBool("b_Laugh", false);
+                animator.SetBool("b_Clap", false);
+                animator.SetBool("b_Walk", false);
+                animator.SetBool("b_Sleep", false);
+                animator.SetBool("b_LieCry", true);
+                break;
+            case BabyState.Sleep:
+                animator.SetBool("b_Cry", false);
+                animator.SetBool("b_Angry", false);
+                animator.SetBool("b_Happy", false);
+                animator.SetBool("b_Laugh", false);
+                animator.SetBool("b_Clap", false);
+                animator.SetBool("b_Walk", false);
+                animator.SetBool("b_Sleep", true);
+                animator.SetBool("b_LieCry", false);
+                break;
         }
     }
 

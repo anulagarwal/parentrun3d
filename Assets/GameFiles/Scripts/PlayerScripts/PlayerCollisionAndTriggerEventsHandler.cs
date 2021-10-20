@@ -54,6 +54,13 @@ public class PlayerCollisionAndTriggerEventsHandler : MonoBehaviour
         {
             PlayerSingleton.Instance.GetPlayerMovementHandler.SwitchSpeed(PlayerSpeedType.SlowDown);
         }
+        else if (other.gameObject.tag == "Shower")
+        {
+            if (other.gameObject.TryGetComponent<ShowerHandler>(out ShowerHandler showerHandler))
+            {
+                showerHandler.PlayShowerPS();
+            }
+        }
     }
 
     private void OnTriggerExit(Collider other)
