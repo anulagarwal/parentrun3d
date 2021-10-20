@@ -13,6 +13,8 @@ public class BabySingleton : MonoBehaviour
     [Header("Components Reference")]
     [SerializeField] private BabyMovementHandler babyMovementHandler = null;
     [SerializeField] private BabyAnimationsHandler babyAnimationsHandler = null;
+    [SerializeField] private BabyRendererHandler babyRendererHandler = null;
+
     #endregion
 
     #region MonoBehaviour Functions
@@ -35,6 +37,8 @@ public class BabySingleton : MonoBehaviour
     public BabyMovementHandler GetBabyMovementHandler { get => babyMovementHandler; }
     
     public BabyAnimationsHandler GetBabyAnimationsHandler { get => babyAnimationsHandler; }
+    public BabyRendererHandler GetBabyRendererHandler { get => babyRendererHandler; }
+
     #endregion
 
     #region Public Core Functions

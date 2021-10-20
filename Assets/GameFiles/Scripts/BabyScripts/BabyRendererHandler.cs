@@ -21,6 +21,7 @@ public class BabyRendererHandler : MonoBehaviour
 
     private Color targetColor = Color.white;
     public ColorLerpMech colorLerpMech = null;
+    private BabyFaceColor colorT;
     #endregion
 
     #region MonoBehaviour Functions
@@ -28,6 +29,7 @@ public class BabyRendererHandler : MonoBehaviour
     {
         babyFaceMat = babyFaceMeshRenderer.material;
         colorLerpMech = null;
+        //SwitchColor(BabyFaceColor.Red);
     }
 
     private void Update()
@@ -48,6 +50,10 @@ public class BabyRendererHandler : MonoBehaviour
         }
         else
         {
+            if(colorT == BabyFaceColor.Red)
+            {
+
+            }
             colorLerpMech = null;
         }
     }
@@ -64,6 +70,7 @@ public class BabyRendererHandler : MonoBehaviour
                 break;
             case BabyFaceColor.Red:
                 targetColor = hotRedColor;
+                color = BabyFaceColor.White;
                 colorLerpMech += SwitchingMech;
                 break;
         }

@@ -45,6 +45,7 @@ public class PlayerCollisionAndTriggerEventsHandler : MonoBehaviour
         {
             if (other.gameObject.TryGetComponent<GateHandler>(out GateHandler gateHandler))
             {
+                gateHandler.EnableVFX();
                 BabySingleton.Instance.GetBabyAnimationsHandler.SwitchBabyAnimations(gateHandler.GetBabyState);
                 PlayerSingleton.Instance.UpdatePlayerEnergy(gateHandler.GetEnergy);
             }
