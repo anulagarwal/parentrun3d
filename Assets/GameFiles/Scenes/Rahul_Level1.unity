@@ -18118,6 +18118,14 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 2120518788, guid: 334949a6518cec54e800f0ee8ebf6b9b, type: 3}
+      propertyPath: maxScale
+      value: 1.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2120518788, guid: 334949a6518cec54e800f0ee8ebf6b9b, type: 3}
+      propertyPath: minScale
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2120518788, guid: 334949a6518cec54e800f0ee8ebf6b9b, type: 3}
       propertyPath: scaleSpeed
       value: 0.05
       objectReference: {fileID: 0}
@@ -18125,6 +18133,10 @@ PrefabInstance:
       propertyPath: babyRendererHandler
       value: 
       objectReference: {fileID: 76200888}
+    - target: {fileID: 2120518789, guid: 334949a6518cec54e800f0ee8ebf6b9b, type: 3}
+      propertyPath: startState
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 384973444042633258, guid: 334949a6518cec54e800f0ee8ebf6b9b, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -18171,7 +18183,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1098976258117251911, guid: 334949a6518cec54e800f0ee8ebf6b9b, type: 3}
       propertyPath: looping
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1098976258117251911, guid: 334949a6518cec54e800f0ee8ebf6b9b, type: 3}
       propertyPath: lengthInSec
@@ -18307,7 +18319,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6071599985847909217, guid: 334949a6518cec54e800f0ee8ebf6b9b, type: 3}
       propertyPath: looping
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6071599985847909217, guid: 334949a6518cec54e800f0ee8ebf6b9b, type: 3}
       propertyPath: lengthInSec
@@ -18333,6 +18345,46 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6206030354013663984, guid: 334949a6518cec54e800f0ee8ebf6b9b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.014
+      objectReference: {fileID: 0}
+    - target: {fileID: 6206030354013663984, guid: 334949a6518cec54e800f0ee8ebf6b9b, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.063
+      objectReference: {fileID: 0}
+    - target: {fileID: 6206030354013663984, guid: 334949a6518cec54e800f0ee8ebf6b9b, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: -0.012038445
+      objectReference: {fileID: 0}
+    - target: {fileID: 6206030354013663984, guid: 334949a6518cec54e800f0ee8ebf6b9b, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.003707023
+      objectReference: {fileID: 0}
+    - target: {fileID: 6206030354013663984, guid: 334949a6518cec54e800f0ee8ebf6b9b, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.98943025
+      objectReference: {fileID: 0}
+    - target: {fileID: 6206030354013663984, guid: 334949a6518cec54e800f0ee8ebf6b9b, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.1444617
+      objectReference: {fileID: 0}
+    - target: {fileID: 6206030354013663984, guid: 334949a6518cec54e800f0ee8ebf6b9b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -16.606
+      objectReference: {fileID: 0}
+    - target: {fileID: 6206030354013663984, guid: 334949a6518cec54e800f0ee8ebf6b9b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -178.511
+      objectReference: {fileID: 0}
+    - target: {fileID: 6206030354013663984, guid: 334949a6518cec54e800f0ee8ebf6b9b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -0.647
+      objectReference: {fileID: 0}
+    - target: {fileID: 6206030354018490990, guid: 334949a6518cec54e800f0ee8ebf6b9b, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: da96386dc6a1cfe4e8e46a98d12dd6ea, type: 2}
     - target: {fileID: 6548610338272902771, guid: 334949a6518cec54e800f0ee8ebf6b9b, type: 3}
       propertyPath: m_Name
       value: Player_Rigged

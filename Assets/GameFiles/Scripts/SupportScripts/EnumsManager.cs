@@ -38,9 +38,19 @@ public enum BabyState
     Puking,
     HotFace,
     Sleep,
-    LieCry
+    LieCry,
+    LieLaugh,
+    DeepSleep,
+    MildSleep
 };
+public enum GameType
+{
+    Hunger,
+    Health,
+    Sleep,
+    Playground
 
+}
 public enum CMCV
 {
     PlayerCMCV,

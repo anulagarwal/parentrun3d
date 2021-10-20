@@ -10,6 +10,10 @@ public class BabyAnimationsHandler : MonoBehaviour
     [SerializeField] private GameObject pukeVfx;
     [SerializeField] private GameObject cryVFX;
     [SerializeField] private GameObject steamVFX;
+    [SerializeField] private GameObject noseBubbleVFX;
+
+    [SerializeField] private BabyState startState = BabyState.Idle;
+
 
     private List<GameObject> vfx = new List<GameObject>();
 
@@ -22,6 +26,7 @@ public class BabyAnimationsHandler : MonoBehaviour
     {
         vfx.Add(pukeVfx);
         vfx.Add(cryVFX);
+        SwitchBabyAnimations(startState);
       //  vfx.Add(steamVFX) ;
 
 
@@ -128,6 +133,8 @@ public class BabyAnimationsHandler : MonoBehaviour
                 animator.SetBool("b_Walk", false);
                 animator.SetBool("b_Sleep", false);
                 animator.SetBool("b_LieCry", true);
+                ClearVFX();
+                cryVFX.SetActive(true);
                 break;
             case BabyState.Sleep:
                 animator.SetBool("b_Cry", false);

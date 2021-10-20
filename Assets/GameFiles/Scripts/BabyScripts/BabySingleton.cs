@@ -9,6 +9,10 @@ public class BabySingleton : MonoBehaviour
 
     [Header("Attributes")]
     [SerializeField] private float scaleSpeed = 0f;
+    [SerializeField] private float maxScale;
+    [SerializeField] private float minScale;
+
+
 
     [Header("Components Reference")]
     [SerializeField] private BabyMovementHandler babyMovementHandler = null;
@@ -45,11 +49,22 @@ public class BabySingleton : MonoBehaviour
     public void ScaleUpBaby()
     {
         this.transform.localScale += Vector3.one * scaleSpeed;
+        if(this.transform.localScale.x > maxScale)
+        {
+            this.transform.localScale = new Vector3(maxScale, maxScale, maxScale);
+        }
+
+        
     }
+
 
     public void ScaleDownBaby()
     {
         this.transform.localScale -= Vector3.one * scaleSpeed;
+        if (this.transform.localScale.x < minScale)
+        {
+            this.transform.localScale = new Vector3(minScale, minScale, minScale);
+        }
     }
 
     public void DerackBaby()

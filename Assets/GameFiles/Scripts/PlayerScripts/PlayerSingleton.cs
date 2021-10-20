@@ -12,7 +12,7 @@ public class PlayerSingleton : MonoBehaviour
     [Header("Attributes")]
     [SerializeField] private int playerEnergyCapacity = 0;
     [SerializeField] private float lerpSpeed = 4;
-
+    [SerializeField] private GameType gameType;
     [SerializeField] private List<string> remarks = new List<string>();
 
     [Header("Components Reference")]
@@ -116,6 +116,15 @@ public class PlayerSingleton : MonoBehaviour
             remarkTxt.SetText(remarks[4]);
         }
        */
+
+        if(gameType == GameType.Sleep)
+        {
+            //1st bar - DEEP SLEEPlie_idle3
+            //2nd bar - LIGHT SLEEP : lie_idle2
+            //3rd bar - SLEEP : lie_idle4
+            //4th bar - WAKING UP : lie_idle1
+            //5th bar - AWAKE : lie_cry
+        }
         if (value >= 1f)
         {
             if (energyBarIndex < playerEnergyBars.Count)
@@ -125,7 +134,6 @@ public class PlayerSingleton : MonoBehaviour
             }
             else
             {
-                print("Full");
             }
         }
         else if (value <= 0f)
@@ -137,7 +145,6 @@ public class PlayerSingleton : MonoBehaviour
             }
             else
             {
-                print("Empty");
             }
         }
     }
