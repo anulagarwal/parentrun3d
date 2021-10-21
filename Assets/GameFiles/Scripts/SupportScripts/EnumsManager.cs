@@ -41,7 +41,9 @@ public enum BabyState
     LieCry,
     LieLaugh,
     DeepSleep,
-    MildSleep
+    LightSleep,
+    WakingUp,
+    Awake
 };
 public enum GameType
 {

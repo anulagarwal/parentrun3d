@@ -12,7 +12,7 @@ public class PlayerSingleton : MonoBehaviour
     [Header("Attributes")]
     [SerializeField] private int playerEnergyCapacity = 0;
     [SerializeField] private float lerpSpeed = 4;
-    [SerializeField] private GameType gameType;
+    [SerializeField] public GameType gameType;
     [SerializeField] private List<string> remarks = new List<string>();
 
     [Header("Components Reference")]
@@ -26,7 +26,7 @@ public class PlayerSingleton : MonoBehaviour
 
     private int playerEnergy = 0;
     private Image playerEnergyBar = null;
-    private int energyBarIndex = 0;
+   [SerializeField] private int energyBarIndex = 0;
     private int energyCapTemp = 0;
     private int targetEnergy;
     #endregion
@@ -60,28 +60,36 @@ public class PlayerSingleton : MonoBehaviour
     public PlayerGroundCheckersHander GetPlayerGroundCheckersHander { get => playerGroundCheckersHander; }
     
     public Transform GetGroundPointTransform { get => groundPointTransform; }
+    public int GetEnergyBarIndex { get => energyBarIndex; }
+
     #endregion
 
 
     private void Update()
     {
-        playerEnergy =  Mathf.FloorToInt(Mathf.Lerp(playerEnergy, targetEnergy, lerpSpeed));
-        UpdateEnergyBar((float)playerEnergy / (float)playerEnergyCapacity);
+      //  playerEnergy =  Mathf.FloorToInt(Mathf.Lerp((float)playerEnergy, (float)targetEnergy, lerpSpeed));
+      //  print(targetEnergy);
+      //  UpdateEnergyBar((float)playerEnergy / (float)playerEnergyCapacity);
+
+        
 
     }
     #region Public Core Functions
     public void UpdatePlayerEnergy(int amount)
     {
         targetEnergy += amount;
-        if (targetEnergy > playerEnergyCapacity)
-        {
-            UpdateEnergyBar((float)targetEnergy / (float)playerEnergyCapacity);
-            targetEnergy = 0;
-        }
-        else if (targetEnergy < 0)
+        UpdateEnergyBar((float)targetEnergy / (float)playerEnergyCapacity);
+
+        if (targetEnergy >= playerEnergyCapacity)
         {
             targetEnergy = 0;
         }
+
+        if (targetEnergy <= 0)
+        {
+            targetEnergy = 0;
+        }
+
     }
 
     public void EnablePlayerHingeJoint(bool value)
@@ -91,62 +99,104 @@ public class PlayerSingleton : MonoBehaviour
     #endregion
 
     #region Private Core Functions
+
+    void UpdateBabySleep()
+    {
+//        print(energyBarIndex);
+        switch (energyBarIndex)
+        {
+            
+            case 0:
+                BabySingleton.Instance.GetBabyAnimationsHandler.SwitchBabyAnimations(BabyState.Awake);
+                break;
+            case 1:
+                BabySingleton.Instance.GetBabyAnimationsHandler.SwitchBabyAnimations(BabyState.WakingUp);
+
+                break;
+
+            case 2:
+                BabySingleton.Instance.GetBabyAnimationsHandler.SwitchBabyAnimations(BabyState.Sleep);
+
+                break;
+
+            case 3:
+                BabySingleton.Instance.GetBabyAnimationsHandler.SwitchBabyAnimations(BabyState.LightSleep);
+
+                break;
+
+            case 4:
+                BabySingleton.Instance.GetBabyAnimationsHandler.SwitchBabyAnimations(BabyState.DeepSleep);
+                break;
+        }
+    }
+
+   public void SetBar(int value)
+    {
+        print(value);
+        if (value != 0)
+        {
+            if (value > 0)
+            {
+                while (energyBarIndex < value)
+                {
+                    energyBarIndex++;
+                    EnableEnergyBar();
+                }
+                if (gameType == GameType.Sleep)
+                {
+                    UpdateBabySleep();
+                }
+            }
+            else if (value<0)
+            {
+                while (energyBarIndex > value)
+                {
+                    energyBarIndex--;
+                    ReduceEnergyBar();
+                }
+                if (gameType == GameType.Sleep)
+                {
+                    UpdateBabySleep();
+                }
+            }
+        }
+    }
     private void UpdateEnergyBar(float value)
     {
         playerEnergyBar.fillAmount = value;
-
-       /* if (value <= 0.2f)
-        {
-            remarkTxt.SetText(remarks[0]);
-        }
-        else if (value <= 0.4f)
-        {
-            remarkTxt.SetText(remarks[1]);
-        }
-        else if (value <= 0.6f)
-        {
-            remarkTxt.SetText(remarks[2]);
-        }
-        else if (value <= 0.8f)
-        {
-            remarkTxt.SetText(remarks[3]);
-        }
-        else if (value <= 1f)
-        {
-            remarkTxt.SetText(remarks[4]);
-        }
-       */
-
-        if(gameType == GameType.Sleep)
-        {
-            //1st bar - DEEP SLEEPlie_idle3
-            //2nd bar - LIGHT SLEEP : lie_idle2
-            //3rd bar - SLEEP : lie_idle4
-            //4th bar - WAKING UP : lie_idle1
-            //5th bar - AWAKE : lie_cry
-        }
-        if (value >= 1f)
-        {
-            if (energyBarIndex < playerEnergyBars.Count)
+       // print(value);
+            if (value >= 1f)
             {
-                energyBarIndex++;
-                EnableEnergyBar();
+                if (energyBarIndex < playerEnergyBars.Count)
+                {
+                    energyBarIndex++;
+                    EnableEnergyBar();
+                if (gameType == GameType.Sleep)
+                {
+                    UpdateBabySleep();
+                }
             }
-            else
+                else
+                {
+                }
+            }
+            else if (value <= 0f)
             {
+                if (energyBarIndex > 0)
+                {
+                    energyBarIndex--;
+                   ReduceEnergyBar();
+               
+                if (gameType == GameType.Sleep)
+                {
+                    UpdateBabySleep();
+                }
             }
-        }
-        else if (value <= 0f)
-        {
-            if (energyBarIndex > 0)
-            {
-                energyBarIndex--;
-                EnableEnergyBar();
+                else
+                {
+                }
             }
-            else
-            {
-            }
-        }
+       
     }
 
     private void EnableEnergyBar()
@@ -155,12 +205,26 @@ public class PlayerSingleton : MonoBehaviour
         {
             i.enabled = false;
         }
-       playerEnergyBars[energyBarIndex].enabled = true;
+        playerEnergyBars[energyBarIndex].enabled = true;
         remarkTxt.SetText(remarks[energyBarIndex]);
 
         playerEnergyBar = playerEnergyBars[energyBarIndex];
         playerEnergyBar.fillAmount = 0;
         playerEnergyCapacity += energyCapTemp;
+    }
+
+    private void ReduceEnergyBar()
+    {
+        foreach (Image i in playerEnergyBars)
+        {
+            i.enabled = false;
+        }
+        playerEnergyBars[energyBarIndex].enabled = true;
+        remarkTxt.SetText(remarks[energyBarIndex]);
+
+        playerEnergyBar = playerEnergyBars[energyBarIndex];
+        playerEnergyBar.fillAmount = 0;
+        playerEnergyCapacity -= energyCapTemp;
     }
     #endregion
 

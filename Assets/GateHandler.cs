@@ -8,7 +8,7 @@ public class GateHandler : MonoBehaviour
     [SerializeField] BabyState babyState;
     [SerializeField] private int energy = 0;
     [SerializeField] private GameObject vfx;
-
+    [SerializeField] private int energyBarNumber;
     #endregion
 
 
@@ -21,6 +21,8 @@ public class GateHandler : MonoBehaviour
     #region Getter And Setter
     public BabyState GetBabyState { get => babyState; }
     public int GetEnergy { get => energy; }
+    public int GetEnergyBarNumber { get => energyBarNumber; }
+
     #endregion
 
 }

@@ -30,12 +30,20 @@ public class PlayerCollisionAndTriggerEventsHandler : MonoBehaviour
                 if (obstacleHandler.GetEnergy < 0)
                 {
                     BabySingleton.Instance.ScaleDownBaby();
-                    BabySingleton.Instance.GetBabyAnimationsHandler.SwitchBabyAnimations(BabyState.Crying);
+                    if (PlayerSingleton.Instance.gameType == GameType.Hunger)
+                    {
+                        BabySingleton.Instance.GetBabyAnimationsHandler.SwitchBabyAnimations(BabyState.Crying);
+                    }
+
                 }
                 else if (obstacleHandler.GetEnergy > 0)
                 {
                     BabySingleton.Instance.ScaleUpBaby();
-                    BabySingleton.Instance.GetBabyAnimationsHandler.SwitchBabyAnimations(BabyState.Happy);
+                    if (PlayerSingleton.Instance.gameType == GameType.Hunger)
+                    {
+                        print("happ");
+                        BabySingleton.Instance.GetBabyAnimationsHandler.SwitchBabyAnimations(BabyState.Happy);
+                    }
                 }
                 PlayerSingleton.Instance.UpdatePlayerEnergy(obstacleHandler.GetEnergy);
                 Destroy(other.gameObject);
@@ -46,8 +54,9 @@ public class PlayerCollisionAndTriggerEventsHandler : MonoBehaviour
             if (other.gameObject.TryGetComponent<GateHandler>(out GateHandler gateHandler))
             {
                 gateHandler.EnableVFX();
-                BabySingleton.Instance.GetBabyAnimationsHandler.SwitchBabyAnimations(gateHandler.GetBabyState);
-                PlayerSingleton.Instance.UpdatePlayerEnergy(gateHandler.GetEnergy);
+              //  PlayerSingleton.Instance.UpdatePlayerEnergy(gateHandler.GetEnergy);
+                PlayerSingleton.Instance.SetBar(gateHandler.GetEnergyBarNumber);
+              //  BabySingleton.Instance.GetBabyAnimationsHandler.SwitchBabyAnimations(gateHandler.GetBabyState);
             }
         }
         else if (other.gameObject.tag == "Path")
