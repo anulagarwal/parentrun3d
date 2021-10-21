@@ -132,7 +132,6 @@ public class PlayerSingleton : MonoBehaviour
 
    public void SetBar(int value)
     {
-        print(value);
         if (value != 0)
         {
             if (value > 0)

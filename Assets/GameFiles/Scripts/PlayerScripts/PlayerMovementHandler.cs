@@ -34,7 +34,7 @@ public class PlayerMovementHandler : MonoBehaviour
         playerGroundCheckersHander = PlayerSingleton.Instance.GetPlayerGroundCheckersHander;
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         if (playerMovementCore != null)
         {
