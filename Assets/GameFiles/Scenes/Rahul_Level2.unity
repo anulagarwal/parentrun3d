@@ -868,11 +868,10 @@ MonoBehaviour:
   defaultColor: {r: 1, g: 1, b: 1, a: 1}
   hotRedColor: {r: 1, g: 0, b: 0, a: 1}
   babyFaceMeshRenderer: {fileID: 959710487}
---- !u!114 &76200893
+--- !u!114 &76200892 stripped
 MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 76200893, guid: 334949a6518cec54e800f0ee8ebf6b9b, type: 3}
+  m_PrefabInstance: {fileID: 6206030353584506212}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 76200887}
   m_Enabled: 0
@@ -880,8 +879,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eca4634e761bc6b478c9a0bc4fa02700, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 12
-  scaleDownSpeed: 1
 --- !u!1001 &83968952
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22471,6 +22468,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 786773768, guid: 334949a6518cec54e800f0ee8ebf6b9b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2120518788, guid: 334949a6518cec54e800f0ee8ebf6b9b, type: 3}
       propertyPath: maxScale
       value: 1.8
@@ -22484,9 +22485,17 @@ PrefabInstance:
       value: 0.05
       objectReference: {fileID: 0}
     - target: {fileID: 2120518788, guid: 334949a6518cec54e800f0ee8ebf6b9b, type: 3}
+      propertyPath: babyMovementHandler
+      value: 
+      objectReference: {fileID: 76200892}
+    - target: {fileID: 2120518788, guid: 334949a6518cec54e800f0ee8ebf6b9b, type: 3}
       propertyPath: babyRendererHandler
       value: 
       objectReference: {fileID: 76200888}
+    - target: {fileID: 2120518789, guid: 334949a6518cec54e800f0ee8ebf6b9b, type: 3}
+      propertyPath: startState
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 384973444042633258, guid: 334949a6518cec54e800f0ee8ebf6b9b, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -22695,13 +22704,69 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6206030354013663984, guid: 334949a6518cec54e800f0ee8ebf6b9b, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.9894301
+      objectReference: {fileID: 0}
+    - target: {fileID: 6206030354013663984, guid: 334949a6518cec54e800f0ee8ebf6b9b, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.14446208
+      objectReference: {fileID: 0}
+    - target: {fileID: 6206030354013663984, guid: 334949a6518cec54e800f0ee8ebf6b9b, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.012038885
+      objectReference: {fileID: 0}
+    - target: {fileID: 6206030354013663984, guid: 334949a6518cec54e800f0ee8ebf6b9b, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.0037070708
+      objectReference: {fileID: 0}
+    - target: {fileID: 6206030354013663984, guid: 334949a6518cec54e800f0ee8ebf6b9b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 16.606
+      objectReference: {fileID: 0}
+    - target: {fileID: 6206030354013663984, guid: 334949a6518cec54e800f0ee8ebf6b9b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -358.511
+      objectReference: {fileID: 0}
+    - target: {fileID: 6206030354013663984, guid: 334949a6518cec54e800f0ee8ebf6b9b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0.647
+      objectReference: {fileID: 0}
+    - target: {fileID: 6206030354022725986, guid: 334949a6518cec54e800f0ee8ebf6b9b, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: d75b1b7a6729f8f448204197fddfcd51, type: 2}
     - target: {fileID: 6548610338272902771, guid: 334949a6518cec54e800f0ee8ebf6b9b, type: 3}
       propertyPath: m_Name
       value: Player_Rigged
       objectReference: {fileID: 0}
     - target: {fileID: 6548610338272902783, guid: 334949a6518cec54e800f0ee8ebf6b9b, type: 3}
+      propertyPath: gameType
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6548610338272902783, guid: 334949a6518cec54e800f0ee8ebf6b9b, type: 3}
       propertyPath: lerpSpeed
       value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6548610338272902783, guid: 334949a6518cec54e800f0ee8ebf6b9b, type: 3}
+      propertyPath: remarks.Array.data[0]
+      value: VERY HUNGRY!
+      objectReference: {fileID: 0}
+    - target: {fileID: 6548610338272902783, guid: 334949a6518cec54e800f0ee8ebf6b9b, type: 3}
+      propertyPath: remarks.Array.data[1]
+      value: HUNGRY!
+      objectReference: {fileID: 0}
+    - target: {fileID: 6548610338272902783, guid: 334949a6518cec54e800f0ee8ebf6b9b, type: 3}
+      propertyPath: remarks.Array.data[2]
+      value: MMM
+      objectReference: {fileID: 0}
+    - target: {fileID: 6548610338272902783, guid: 334949a6518cec54e800f0ee8ebf6b9b, type: 3}
+      propertyPath: remarks.Array.data[3]
+      value: SATISFIED
+      objectReference: {fileID: 0}
+    - target: {fileID: 6548610338272902783, guid: 334949a6518cec54e800f0ee8ebf6b9b, type: 3}
+      propertyPath: remarks.Array.data[4]
+      value: FULL!!
       objectReference: {fileID: 0}
     - target: {fileID: 8825807389641278164, guid: 334949a6518cec54e800f0ee8ebf6b9b, type: 3}
       propertyPath: m_IsActive
@@ -22892,7 +22957,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7957835196400643598, guid: 87bcc05fe2f1e4625a2d3b95e83162ba, type: 3}
       propertyPath: m_text
-      value: BADFOOD
+      value: CHOCOLATE
       objectReference: {fileID: 0}
     - target: {fileID: 7957835196400643599, guid: 87bcc05fe2f1e4625a2d3b95e83162ba, type: 3}
       propertyPath: m_SizeDelta.x

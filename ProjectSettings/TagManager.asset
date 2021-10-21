@@ -9,6 +9,7 @@ TagManager:
   - Gate
   - Path
   - Shower
+  - Breaker
   layers:
   - Default
   - TransparentFX

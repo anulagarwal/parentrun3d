@@ -132,33 +132,30 @@ public class PlayerSingleton : MonoBehaviour
 
    public void SetBar(int value)
     {
-        if (value != 0)
+
+        if(energyBarIndex < value)
         {
-            if (value > 0)
+            while (energyBarIndex < value)
             {
-                while (energyBarIndex < value)
-                {
-                    energyBarIndex++;
-                    EnableEnergyBar();
-                }
-                if (gameType == GameType.Sleep)
-                {
-                    UpdateBabySleep();
-                }
-            }
-            else if (value<0)
-            {
-                while (energyBarIndex > value)
-                {
-                    energyBarIndex--;
-                    ReduceEnergyBar();
-                }
-                if (gameType == GameType.Sleep)
-                {
-                    UpdateBabySleep();
-                }
+                energyBarIndex++;
+                EnableEnergyBar();
             }
         }
+        else if(energyBarIndex > value)
+        {
+            while (energyBarIndex > value)
+            {
+                energyBarIndex--;
+                ReduceEnergyBar();
+            }
+        }
+               // energyBarIndex = value;
+
+            
+            if (gameType == GameType.Sleep)
+            {
+                UpdateBabySleep();
+            }                   
     }
     private void UpdateEnergyBar(float value)
     {
@@ -204,12 +201,26 @@ public class PlayerSingleton : MonoBehaviour
         {
             i.enabled = false;
         }
-        playerEnergyBars[energyBarIndex].enabled = true;
-        remarkTxt.SetText(remarks[energyBarIndex]);
 
-        playerEnergyBar = playerEnergyBars[energyBarIndex];
+        if(energyBarIndex >= playerEnergyBars.Count)
+        {
+            playerEnergyBars[energyBarIndex-1].enabled = true;
+            remarkTxt.SetText(remarks[energyBarIndex-1]);
+
+            playerEnergyBar = playerEnergyBars[energyBarIndex-1];
+        }
+        else
+        {
+            playerEnergyBars[energyBarIndex].enabled = true;
+            remarkTxt.SetText(remarks[energyBarIndex]);
+
+            playerEnergyBar = playerEnergyBars[energyBarIndex];
+        }
+     
         playerEnergyBar.fillAmount = 0;
         playerEnergyCapacity += energyCapTemp;
+       // playerEnergyCapacity = energyCapTemp* (Mathf.Max(energyBarIndex,1));
+        //playeren
     }
 
     private void ReduceEnergyBar()

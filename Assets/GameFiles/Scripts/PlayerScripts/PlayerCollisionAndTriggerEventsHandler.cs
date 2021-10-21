@@ -51,12 +51,24 @@ public class PlayerCollisionAndTriggerEventsHandler : MonoBehaviour
         }
         else if (other.gameObject.tag == "Gate")
         {
-            if (other.gameObject.TryGetComponent<GateHandler>(out GateHandler gateHandler))
+            if (PlayerSingleton.Instance.gameType == GameType.Sleep)
             {
-                gateHandler.EnableVFX();
-              //  PlayerSingleton.Instance.UpdatePlayerEnergy(gateHandler.GetEnergy);
-                PlayerSingleton.Instance.SetBar(gateHandler.GetEnergyBarNumber);
-              //  BabySingleton.Instance.GetBabyAnimationsHandler.SwitchBabyAnimations(gateHandler.GetBabyState);
+                if (other.gameObject.TryGetComponent<GateHandler>(out GateHandler gateHandler))
+                {
+                    gateHandler.EnableVFX();
+                    //  PlayerSingleton.Instance.UpdatePlayerEnergy(gateHandler.GetEnergy);
+                    PlayerSingleton.Instance.SetBar(gateHandler.GetEnergyBarNumber);
+                    //  BabySingleton.Instance.GetBabyAnimationsHandler.SwitchBabyAnimations(gateHandler.GetBabyState);
+                }
+            }
+            else
+            {
+                if (other.gameObject.TryGetComponent<GateHandler>(out GateHandler gateHandler))
+                {
+                   
+                      PlayerSingleton.Instance.UpdatePlayerEnergy(gateHandler.GetEnergy);
+                      BabySingleton.Instance.GetBabyAnimationsHandler.SwitchBabyAnimations(gateHandler.GetBabyState);
+                }
             }
         }
         else if (other.gameObject.tag == "Path")
@@ -70,8 +82,19 @@ public class PlayerCollisionAndTriggerEventsHandler : MonoBehaviour
                 showerHandler.PlayShowerPS();
             }
         }
-    }
+        if (other.gameObject.tag == "Breaker")
+        {
+            if (other.gameObject.TryGetComponent<ObstacleHandler>(out ObstacleHandler obstacleHandler))
+            {
+                PlayerSingleton.Instance.UpdatePlayerEnergy(obstacleHandler.GetEnergy);
+            }
+        }
 
+    }
+    private void OnCollisionEnter(Collision collision)
+    {
+         
+    }
     private void OnTriggerExit(Collider other)
     {
         if (other.gameObject.tag == "Path")
