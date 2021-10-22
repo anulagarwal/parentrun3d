@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
-
+using UnityEngine.SceneManagement;
 public class LevelManager : MonoBehaviour
 {
     #region Properties
@@ -47,6 +47,11 @@ public class LevelManager : MonoBehaviour
             cmcv_1.Follow = BabySingleton.Instance.transform;
             cmcv_1.LookAt = BabySingleton.Instance.transform;
         }
+    }
+
+    public void ChangeLevel(string s)
+    {
+        Application.LoadLevel(s);
     }
     #endregion
 }

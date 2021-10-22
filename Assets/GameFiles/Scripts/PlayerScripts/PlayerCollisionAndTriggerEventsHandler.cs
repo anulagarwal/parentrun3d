@@ -16,12 +16,13 @@ public class PlayerCollisionAndTriggerEventsHandler : MonoBehaviour
             PlayerSingleton.Instance.GetPlayerMovementHandler.enabled = false;
             PlayerSingleton.Instance.GetPlayerAnimationsHandler.SwitchAnimation(PlayerAnimationState.Victory);
             BabySingleton.Instance.GetBabyAnimationsHandler.SwitchBabyAnimations(BabyState.Clap);
+            //BabySingleton.Instance.SwitchRuntimeAnimatorController(BabyAnimators.Default);
             LevelManager.Instance.Victory();
-            //LevelUIManager.Instance.SwitchUIPanel(UIPanelState.GameOver, GameOverState.Victory);
+            LevelUIManager.Instance.SwitchUIPanel(UIPanelState.GameOver, GameOverState.Victory);
 
-            BabySingleton.Instance.DerackBaby();
-            PlayerSingleton.Instance.EnablePlayerHingeJoint(false);
-            Invoke("MoveToEndPoint", 2f);
+            //BabySingleton.Instance.DerackBaby();
+            //PlayerSingleton.Instance.EnablePlayerHingeJoint(false);
+            //Invoke("MoveToEndPoint", 2f);
         }
         else if (other.gameObject.tag == "Obstacle")
         {
@@ -41,7 +42,6 @@ public class PlayerCollisionAndTriggerEventsHandler : MonoBehaviour
                     BabySingleton.Instance.ScaleUpBaby();
                     if (PlayerSingleton.Instance.gameType == GameType.Hunger)
                     {
-                        print("happ");
                         BabySingleton.Instance.GetBabyAnimationsHandler.SwitchBabyAnimations(BabyState.Happy);
                     }
                 }
@@ -49,25 +49,45 @@ public class PlayerCollisionAndTriggerEventsHandler : MonoBehaviour
                 Destroy(other.gameObject);
             }
         }
+        else if(other.gameObject.tag == "Audio")
+        {
+
+            if (other.gameObject.TryGetComponent<AudioHandler>(out AudioHandler obstacleHandler))
+            {
+                if (obstacleHandler.GetEnergy < 0)
+                {
+                    BabySingleton.Instance.ScaleDownBaby();
+                    PlayerSingleton.Instance.UpdatePlayerEnergy(obstacleHandler.GetEnergy);
+
+                }
+            }
+
+        }
         else if (other.gameObject.tag == "Gate")
         {
             if (PlayerSingleton.Instance.gameType == GameType.Sleep)
             {
+
                 if (other.gameObject.TryGetComponent<GateHandler>(out GateHandler gateHandler))
-                {
-                    gateHandler.EnableVFX();
+            {
+                gateHandler.EnableVFX();
+
+                
                     //  PlayerSingleton.Instance.UpdatePlayerEnergy(gateHandler.GetEnergy);
                     PlayerSingleton.Instance.SetBar(gateHandler.GetEnergyBarNumber);
                     //  BabySingleton.Instance.GetBabyAnimationsHandler.SwitchBabyAnimations(gateHandler.GetBabyState);
                 }
             }
+
+
             else
             {
                 if (other.gameObject.TryGetComponent<GateHandler>(out GateHandler gateHandler))
                 {
-                   
-                      PlayerSingleton.Instance.UpdatePlayerEnergy(gateHandler.GetEnergy);
-                      BabySingleton.Instance.GetBabyAnimationsHandler.SwitchBabyAnimations(gateHandler.GetBabyState);
+                    gateHandler.EnableVFX();
+
+                    PlayerSingleton.Instance.UpdatePlayerEnergy(gateHandler.GetEnergy);
+                    BabySingleton.Instance.GetBabyAnimationsHandler.SwitchBabyAnimations(gateHandler.GetBabyState);
                 }
             }
         }

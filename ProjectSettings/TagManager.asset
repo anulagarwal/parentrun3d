@@ -10,6 +10,7 @@ TagManager:
   - Path
   - Shower
   - Breaker
+  - Audio
   layers:
   - Default
   - TransparentFX
