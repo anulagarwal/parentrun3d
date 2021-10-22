@@ -76,3 +76,9 @@ public enum ShowerType
     Hot,
     Cold
 };
+
+public enum BabyAnimators
+{
+    Sleeping,
+    Default
+};

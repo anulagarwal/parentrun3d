@@ -80,6 +80,9 @@ public class PlayerCollisionAndTriggerEventsHandler : MonoBehaviour
             if (other.gameObject.TryGetComponent<ShowerHandler>(out ShowerHandler showerHandler))
             {
                 showerHandler.PlayShowerPS();
+                showerHandler.GetShowerPS.transform.parent = this.transform;
+
+                Destroy(showerHandler.GetShowerPS.transform.gameObject, 5f);
             }
         }
         if (other.gameObject.tag == "Breaker")

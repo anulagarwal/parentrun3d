@@ -13,6 +13,7 @@ public class ShowerHandler : MonoBehaviour
     #endregion
 
     #region Getter And Setter
+    public ParticleSystem GetShowerPS { get => showerPS; }
     #endregion
 
     #region Public Core Functions

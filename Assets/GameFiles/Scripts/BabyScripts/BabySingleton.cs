@@ -18,7 +18,11 @@ public class BabySingleton : MonoBehaviour
     [SerializeField] private BabyMovementHandler babyMovementHandler = null;
     [SerializeField] private BabyAnimationsHandler babyAnimationsHandler = null;
     [SerializeField] private BabyRendererHandler babyRendererHandler = null;
+    [SerializeField] private Animator animator = null;
 
+    [Header("Animators")]
+    [SerializeField] private RuntimeAnimatorController sleepingRuntimeAnimator = null;
+    [SerializeField] private RuntimeAnimatorController defaultRuntimeAnimator = null;
     #endregion
 
     #region MonoBehaviour Functions
@@ -72,6 +76,19 @@ public class BabySingleton : MonoBehaviour
         this.transform.parent = null;
         transform.rotation = PlayerSingleton.Instance.transform.rotation;
         transform.position = PlayerSingleton.Instance.GetGroundPointTransform.position;
+    }
+
+    public void SwitchRuntimeAnimatorController(BabyAnimators anim)
+    {
+        switch (anim)
+        {
+            case BabyAnimators.Default:
+                animator.runtimeAnimatorController = defaultRuntimeAnimator;
+                break;
+            case BabyAnimators.Sleeping:
+                animator.runtimeAnimatorController = sleepingRuntimeAnimator;
+                break;
+        }
     }
     #endregion
 }
