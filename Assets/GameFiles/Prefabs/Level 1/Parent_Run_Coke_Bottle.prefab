@@ -11,9 +11,13 @@ GameObject:
   - component: {fileID: 5996099218121864370}
   - component: {fileID: 7249027304170044183}
   - component: {fileID: 4863114249812660189}
+  - component: {fileID: 1509536795}
+  - component: {fileID: 1509536794}
+  - component: {fileID: 83968956}
+  - component: {fileID: 83968955}
   m_Layer: 0
   m_Name: Parent_Run_Coke_Bottle
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -25,7 +29,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6376460269443804680}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -1.77, y: -0.002259889, z: 11.57}
   m_LocalScale: {x: 3, y: 3, z: 3}
   m_Children: []
@@ -60,6 +64,7 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 3d6b9280440497e4ca83214607436144, type: 2}
+  - {fileID: -1360991219368177298, guid: d60c6d42633b50b489d414da23e91ba9, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -81,3 +86,57 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &1509536795
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6376460269443804680}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.28228432, y: 0.8596647, z: 0.28228432}
+  m_Center: {x: 0.00000011920929, y: 0.03, z: 0}
+--- !u!114 &1509536794
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6376460269443804680}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee6c8723926d00942b57bcf4a0f4498e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  energy: -30
+  obstacleState: 0
+--- !u!65 &83968956
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6376460269443804680}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.28228432, y: 0.8596647, z: 0.28228432}
+  m_Center: {x: 0.00000011920929, y: 0.03, z: 0}
+--- !u!114 &83968955
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6376460269443804680}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee6c8723926d00942b57bcf4a0f4498e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  energy: -30
+  obstacleState: 0
