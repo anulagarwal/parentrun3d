@@ -182,7 +182,7 @@ GameObject:
   - component: {fileID: 6258490672440575591}
   - component: {fileID: 6258490672440575590}
   - component: {fileID: 4045465868844422663}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Track_Multiplier (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -796,7 +796,7 @@ GameObject:
   - component: {fileID: 6258490672974644274}
   - component: {fileID: 6258490672974644277}
   - component: {fileID: 6943429889437910524}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Track_Multiplier (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2817,7 +2817,7 @@ GameObject:
   - component: {fileID: 7421865062198975118}
   - component: {fileID: 4691402511449353796}
   - component: {fileID: 8143012085828248864}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Track_Multiplier (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -50,21 +50,24 @@ public class PlayerMovementHandler : MonoBehaviour
     #region Private Core Functions
     private void PlayerTranslation()
     {
-        movementDirection = new Vector3(movementJS.Horizontal, 0, 1).normalized;
-
-        if (playerGroundCheckersHander.RestrictLeftMovement)
+        if (movementJS)
         {
-            if (movementDirection.x < 0)
+            movementDirection = new Vector3(movementJS.Horizontal, 0, 1).normalized;
+
+            if (playerGroundCheckersHander.RestrictLeftMovement)
             {
-                movementDirection.x = 0;
+                if (movementDirection.x < 0)
+                {
+                    movementDirection.x = 0;
+                }
             }
-        }
 
-        if (playerGroundCheckersHander.RestrictRightMovement)
-        {
-            if (movementDirection.x > 0)
+            if (playerGroundCheckersHander.RestrictRightMovement)
             {
-                movementDirection.x = 0;
+                if (movementDirection.x > 0)
+                {
+                    movementDirection.x = 0;
+                }
             }
         }
 
@@ -117,6 +120,8 @@ public class PlayerMovementHandler : MonoBehaviour
 
     public void EnablePlayerMoveTowardsMechanic(bool value)
     {
+        playerMovementCore = null;
+        movementJS = null;
         if (value)
         {
             playerMovementCore += PlayerMoveTowardsMechanic;
