@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 2138677392}
-  m_IndirectSpecularColor: {r: 0.17296991, g: 0.6666198, b: 0.91835046, a: 1}
+  m_IndirectSpecularColor: {r: 0.17299032, g: 0.6664945, b: 0.9190012, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -15725,6 +15725,11 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: bad986b897647da4587b10e78fc9bdbf, type: 3}
   m_PrefabInstance: {fileID: 1534277091}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &630234919 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7355981093730715609, guid: 9fa7675ff7af0431197476dce0ad11cc, type: 3}
+  m_PrefabInstance: {fileID: 3473839287691686556}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &632405832 stripped
 Transform:
@@ -61361,6 +61366,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4392390333752543623, guid: 9fa7675ff7af0431197476dce0ad11cc, type: 3}
+      propertyPath: canvas
+      value: 
+      objectReference: {fileID: 630234919}
     - target: {fileID: 5796636005262403802, guid: 9fa7675ff7af0431197476dce0ad11cc, type: 3}
       propertyPath: m_Name
       value: Essentials

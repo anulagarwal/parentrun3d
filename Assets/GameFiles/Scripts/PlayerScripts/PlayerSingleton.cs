@@ -16,6 +16,7 @@ public class PlayerSingleton : MonoBehaviour
     [SerializeField] private List<string> remarks = new List<string>();
 
     [Header("Components Reference")]
+    [SerializeField] private GameObject canvas = null;
     [SerializeField] private List<Image> playerEnergyBars = new List<Image>();
     [SerializeField] private PlayerMovementHandler playerMovementHandler = null;
     [SerializeField] private PlayerAnimationsHandler playerAnimationsHandler = null;
@@ -128,6 +129,11 @@ public class PlayerSingleton : MonoBehaviour
                 BabySingleton.Instance.GetBabyAnimationsHandler.SwitchBabyAnimations(BabyState.DeepSleep);
                 break;
         }
+    }
+
+    public void EnableCanvas(bool value)
+    {
+        canvas.SetActive(value);
     }
 
    public void SetBar(int value)

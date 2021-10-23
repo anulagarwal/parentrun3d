@@ -24,6 +24,7 @@ public class PlayerCollisionAndTriggerEventsHandler : MonoBehaviour
 
             BabySingleton.Instance.DerackBaby();
             PlayerSingleton.Instance.EnablePlayerHingeJoint(false);
+            PlayerSingleton.Instance.EnableCanvas(false);
             Invoke("MoveToEndPoint", 2f);
         }
         else if (other.gameObject.tag == "Obstacle")
