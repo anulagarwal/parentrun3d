@@ -34,6 +34,7 @@ public class BabyAnimationsHandler : MonoBehaviour
         vfx.Add(zzzVFX);
         vfx.Add(cryEmotionVFX);
         vfx.Add(noseBubbleVFX);
+        ClearVFX();
         noseBubbleSize = noseBubbleVFX.transform.localScale;
         SwitchBabyAnimations(startState);
       //  vfx.Add(steamVFX) ;
@@ -284,7 +285,7 @@ public class BabyAnimationsHandler : MonoBehaviour
         }
     }
 
-    void ClearVFX()
+   public void ClearVFX()
     {
         foreach(GameObject g in vfx)
         {

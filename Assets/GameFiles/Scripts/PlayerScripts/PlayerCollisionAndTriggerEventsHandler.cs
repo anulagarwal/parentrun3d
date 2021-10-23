@@ -15,6 +15,8 @@ public class PlayerCollisionAndTriggerEventsHandler : MonoBehaviour
         {
             PlayerSingleton.Instance.GetPlayerMovementHandler.enabled = false;
             PlayerSingleton.Instance.GetPlayerAnimationsHandler.SwitchAnimation(PlayerAnimationState.Victory);
+            BabySingleton.Instance.SwitchRuntimeAnimatorController(BabyAnimators.Default);
+            BabySingleton.Instance.GetBabyAnimationsHandler.ClearVFX();
             BabySingleton.Instance.GetBabyAnimationsHandler.SwitchBabyAnimations(BabyState.Clap);
             //BabySingleton.Instance.SwitchRuntimeAnimatorController(BabyAnimators.Default);
             LevelManager.Instance.Victory();
