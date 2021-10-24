@@ -287,9 +287,7 @@ public class BabyAnimationsHandler : MonoBehaviour
                 cloth.SetActive(true);
                 diaper.SetActive(false);
                 thermometer.SetActive(true);
-                
-              
-
+                steamVfx.SetActive(true);
 
                 //Blanket
                 //Thermometer

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 2138677392}
-  m_IndirectSpecularColor: {r: 0.17299032, g: 0.6664945, b: 0.9190012, a: 1}
+  m_IndirectSpecularColor: {r: 0.17296991, g: 0.6666198, b: 0.91835046, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2945,49 +2945,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3473839287787341064, guid: 9fa7675ff7af0431197476dce0ad11cc, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.9895025
-      objectReference: {fileID: 0}
-    - target: {fileID: 3473839287787341064, guid: 9fa7675ff7af0431197476dce0ad11cc, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0.14440575
-      objectReference: {fileID: 0}
-    - target: {fileID: 3473839287787341064, guid: 9fa7675ff7af0431197476dce0ad11cc, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0.0008153334
-      objectReference: {fileID: 0}
-    - target: {fileID: 3473839287787341064, guid: 9fa7675ff7af0431197476dce0ad11cc, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0.005586858
-      objectReference: {fileID: 0}
-    - target: {fileID: 3473839287787341064, guid: 9fa7675ff7af0431197476dce0ad11cc, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3473839287794536090, guid: 9fa7675ff7af0431197476dce0ad11cc, type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: d75b1b7a6729f8f448204197fddfcd51, type: 2}
-    - target: {fileID: 4392390333752543623, guid: 9fa7675ff7af0431197476dce0ad11cc, type: 3}
-      propertyPath: gameType
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5796636005262403802, guid: 9fa7675ff7af0431197476dce0ad11cc, type: 3}
       propertyPath: m_Name
       value: Essentials
-      objectReference: {fileID: 0}
-    - target: {fileID: 7355981094522354557, guid: 9fa7675ff7af0431197476dce0ad11cc, type: 3}
-      propertyPath: startState
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 7526216311368862200, guid: 9fa7675ff7af0431197476dce0ad11cc, type: 3}
-      propertyPath: m_ConnectedAnchor.x
-      value: 0.01623267
-      objectReference: {fileID: 0}
-    - target: {fileID: 7526216311368862200, guid: 9fa7675ff7af0431197476dce0ad11cc, type: 3}
-      propertyPath: m_ConnectedAnchor.z
-      value: -0.4881363
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9fa7675ff7af0431197476dce0ad11cc, type: 3}

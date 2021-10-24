@@ -111,7 +111,8 @@ public class PlayerCollisionAndTriggerEventsHandler : MonoBehaviour
             if (other.gameObject.TryGetComponent<ShowerHandler>(out ShowerHandler showerHandler))
             {
                 showerHandler.PlayShowerPS();
-                showerHandler.GetShowerPS.transform.parent = this.transform;
+                showerHandler.GetShowerPS.transform.parent.SetParent(this.transform);
+                showerHandler.GetShowerPS.transform.parent.localPosition = new Vector3(0, 1, -1.4f);
 
                 Destroy(showerHandler.GetShowerPS.transform.gameObject, 5f);
             }
