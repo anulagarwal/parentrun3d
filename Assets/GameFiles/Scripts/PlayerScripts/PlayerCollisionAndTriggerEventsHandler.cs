@@ -33,20 +33,31 @@ public class PlayerCollisionAndTriggerEventsHandler : MonoBehaviour
             {
                 if (obstacleHandler.GetEnergy < 0)
                 {
-                    BabySingleton.Instance.ScaleDownBaby();
                     if (PlayerSingleton.Instance.gameType == GameType.Hunger)
                     {
+                        BabySingleton.Instance.ScaleDownBaby();
                         BabySingleton.Instance.GetBabyAnimationsHandler.SwitchBabyAnimations(BabyState.Crying);
+                    }
+
+                    if(PlayerSingleton.Instance.gameType == GameType.Health)
+                    {
+                        
                     }
 
                 }
                 else if (obstacleHandler.GetEnergy > 0)
                 {
-                    BabySingleton.Instance.ScaleUpBaby();
                     if (PlayerSingleton.Instance.gameType == GameType.Hunger)
                     {
+                        BabySingleton.Instance.ScaleUpBaby();
                         BabySingleton.Instance.GetBabyAnimationsHandler.SwitchBabyAnimations(BabyState.Happy);
                     }
+
+                    if (PlayerSingleton.Instance.gameType == GameType.Health)
+                    {
+                        //Change Anim
+                    }
+
                 }
                 PlayerSingleton.Instance.UpdatePlayerEnergy(obstacleHandler.GetEnergy);
                 Destroy(other.gameObject);
@@ -59,10 +70,12 @@ public class PlayerCollisionAndTriggerEventsHandler : MonoBehaviour
             {
                 if (obstacleHandler.GetEnergy < 0)
                 {
-                    BabySingleton.Instance.ScaleDownBaby();
-                    PlayerSingleton.Instance.UpdatePlayerEnergy(obstacleHandler.GetEnergy);
+                    if (PlayerSingleton.Instance.gameType == GameType.Hunger)
+                        BabySingleton.Instance.ScaleDownBaby();
 
+                    PlayerSingleton.Instance.UpdatePlayerEnergy(obstacleHandler.GetEnergy);
                 }
+               
             }
 
         }
@@ -72,23 +85,18 @@ public class PlayerCollisionAndTriggerEventsHandler : MonoBehaviour
             {
 
                 if (other.gameObject.TryGetComponent<GateHandler>(out GateHandler gateHandler))
-            {
-                gateHandler.EnableVFX();
-
-                
-                    //  PlayerSingleton.Instance.UpdatePlayerEnergy(gateHandler.GetEnergy);
+                {
+                    gateHandler.EnableVFX();                                 
                     PlayerSingleton.Instance.SetBar(gateHandler.GetEnergyBarNumber);
-                    //  BabySingleton.Instance.GetBabyAnimationsHandler.SwitchBabyAnimations(gateHandler.GetBabyState);
                 }
             }
 
 
-            else
+            else 
             {
                 if (other.gameObject.TryGetComponent<GateHandler>(out GateHandler gateHandler))
                 {
                    // gateHandler.EnableVFX();
-
                     PlayerSingleton.Instance.UpdatePlayerEnergy(gateHandler.GetEnergy);
                     BabySingleton.Instance.GetBabyAnimationsHandler.SwitchBabyAnimations(gateHandler.GetBabyState);
                 }

@@ -130,6 +130,34 @@ public class PlayerSingleton : MonoBehaviour
                 break;
         }
     }
+    void UpdateBabyHealth()
+    {
+        switch (energyBarIndex)
+        {
+
+            case 0:
+                BabySingleton.Instance.GetBabyAnimationsHandler.SwitchBabyAnimations(BabyState.HighFever);
+                break;
+            case 1:
+                BabySingleton.Instance.GetBabyAnimationsHandler.SwitchBabyAnimations(BabyState.LowFever);
+
+                break;
+
+            case 2:
+                BabySingleton.Instance.GetBabyAnimationsHandler.SwitchBabyAnimations(BabyState.MildFever);
+
+                break;
+
+            case 3:
+                BabySingleton.Instance.GetBabyAnimationsHandler.SwitchBabyAnimations(BabyState.LukeWarm);
+
+                break;
+
+            case 4:
+                BabySingleton.Instance.GetBabyAnimationsHandler.SwitchBabyAnimations(BabyState.Healthy);
+                break;
+        }
+    }
 
     public void EnableCanvas(bool value)
     {
@@ -177,10 +205,12 @@ public class PlayerSingleton : MonoBehaviour
                 {
                     UpdateBabySleep();
                 }
-            }
-                else
+                if(gameType == GameType.Health)
                 {
+                    UpdateBabyHealth();
                 }
+            }
+               
             }
             else if (value <= 0f)
             {
@@ -193,10 +223,12 @@ public class PlayerSingleton : MonoBehaviour
                 {
                     UpdateBabySleep();
                 }
-            }
-                else
+                if (gameType == GameType.Health)
                 {
+                    UpdateBabyHealth();
                 }
+            }
+                
             }
        
     }

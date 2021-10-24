@@ -13,6 +13,16 @@ public class BabyAnimationsHandler : MonoBehaviour
     [SerializeField] private GameObject noseBubbleVFX;
     [SerializeField] private GameObject zzzVFX;
     [SerializeField] private GameObject cryEmotionVFX;
+    [SerializeField] private GameObject cloth;
+    [SerializeField] private GameObject diaper;
+    [SerializeField] private GameObject thermometer;
+    [SerializeField] private GameObject steamVfx;
+    [SerializeField] private GameObject brrrVfx;
+
+
+
+
+
 
 
 
@@ -34,6 +44,11 @@ public class BabyAnimationsHandler : MonoBehaviour
         vfx.Add(zzzVFX);
         vfx.Add(cryEmotionVFX);
         vfx.Add(noseBubbleVFX);
+        vfx.Add(cloth);
+        vfx.Add(diaper);
+        vfx.Add(thermometer);
+        vfx.Add(steamVfx);
+        vfx.Add(brrrVfx);
         ClearVFX();
         noseBubbleSize = noseBubbleVFX.transform.localScale;
         SwitchBabyAnimations(startState);
@@ -188,17 +203,7 @@ public class BabyAnimationsHandler : MonoBehaviour
 
 
             case BabyState.Awake:
-                /*  animator.SetBool("b_Cry", false);
-                  animator.SetBool("b_Angry", false);
-                  animator.SetBool("b_Happy", false);
-                  animator.SetBool("b_Laugh", false);
-                  animator.SetBool("b_Clap", false);
-                  animator.SetBool("b_Walk", false);
-                  animator.SetBool("b_Sleep", false);
-                  animator.SetBool("b_LieCry", true);
-                  animator.SetBool("b_WakeUp", false);
-                  animator.SetBool("b_LightSleep", false);
-                  animator.SetBool("b_DeepSleep", false);*/
+               
                 animator.Play("LieCry");
                 ClearVFX();
                 cryVFX.SetActive(true);
@@ -206,17 +211,7 @@ public class BabyAnimationsHandler : MonoBehaviour
                 break;
 
             case BabyState.WakingUp:
-                /*  animator.SetBool("b_Cry", false);
-                  animator.SetBool("b_Angry", false);
-                  animator.SetBool("b_Happy", false);
-                  animator.SetBool("b_Laugh", false);
-                  animator.SetBool("b_Clap", false);
-                  animator.SetBool("b_Walk", false);
-                  animator.SetBool("b_Sleep", false);
-                  animator.SetBool("b_LieCry", false);
-                  animator.SetBool("b_WakeUp", true);
-                  animator.SetBool("b_LightSleep", false);
-                  animator.SetBool("b_DeepSleep", false);*/
+           
                 animator.Play("WakingUp");
                 ClearVFX();
                 cryVFX.SetActive(true);
@@ -224,17 +219,7 @@ public class BabyAnimationsHandler : MonoBehaviour
 
            
             case BabyState.Sleep:
-              /*  animator.SetBool("b_Cry", false);
-                animator.SetBool("b_Angry", false);
-                animator.SetBool("b_Happy", false);
-                animator.SetBool("b_Laugh", false);
-                animator.SetBool("b_Clap", false);
-                animator.SetBool("b_Walk", false);
-                animator.SetBool("b_Sleep", true);
-                animator.SetBool("b_LieCry", false);
-                animator.SetBool("b_WakeUp", false);
-                animator.SetBool("b_LightSleep", false);
-                animator.SetBool("b_DeepSleep", false);*/
+            
                 animator.Play("Sleep");
                 ClearVFX();
                 noseBubbleVFX.SetActive(true);
@@ -242,17 +227,7 @@ public class BabyAnimationsHandler : MonoBehaviour
                 break;
 
             case BabyState.LightSleep:
-              /*  animator.SetBool("b_Cry", false);
-                animator.SetBool("b_Angry", false);
-                animator.SetBool("b_Happy", false);
-                animator.SetBool("b_Laugh", false);
-                animator.SetBool("b_Clap", false);
-                animator.SetBool("b_Walk", false);
-                animator.SetBool("b_Sleep", false);
-                animator.SetBool("b_LieCry", false);
-                animator.SetBool("b_WakeUp", false);
-                animator.SetBool("b_LightSleep", true);
-                animator.SetBool("b_DeepSleep", false);*/
+         
                 animator.Play("LightSleep");
                 ClearVFX();
                 zzzVFX.SetActive(true);
@@ -263,7 +238,17 @@ public class BabyAnimationsHandler : MonoBehaviour
 
             case BabyState.DeepSleep:
                 animator.Play("Sleeping");
-               /* animator.SetBool("b_Cry", false);
+               
+                ClearVFX();
+                zzzVFX.SetActive(true);
+                noseBubbleVFX.SetActive(true);
+                noseBubbleVFX.transform.localScale = noseBubbleSize * 2f;
+                break;
+
+            case BabyState.HighFever:
+
+                
+                animator.SetBool("b_Cry", true);
                 animator.SetBool("b_Angry", false);
                 animator.SetBool("b_Happy", false);
                 animator.SetBool("b_Laugh", false);
@@ -273,12 +258,98 @@ public class BabyAnimationsHandler : MonoBehaviour
                 animator.SetBool("b_LieCry", false);
                 animator.SetBool("b_WakeUp", false);
                 animator.SetBool("b_LightSleep", false);
-                animator.SetBool("b_DeepSleep", true);*/
+                animator.SetBool("b_DeepSleep", false);
                 ClearVFX();
-                zzzVFX.SetActive(true);
-                noseBubbleVFX.SetActive(true);
-                noseBubbleVFX.transform.localScale = noseBubbleSize * 2f;
+                cryVFX.SetActive(true);
+                cloth.SetActive(true);
+                diaper.SetActive(false);
+                thermometer.SetActive(true);
+                steamVfx.SetActive(true);
+                brrrVfx.SetActive(true);
+               
+                break;
 
+            case BabyState.LowFever:
+                animator.SetBool("b_Cry", true);
+                animator.SetBool("b_Angry", false);
+                animator.SetBool("b_Happy", false);
+                animator.SetBool("b_Laugh", false);
+                animator.SetBool("b_Clap", false);
+                animator.SetBool("b_Walk", false);
+                animator.SetBool("b_Sleep", false);
+                animator.SetBool("b_LieCry", false);
+                animator.SetBool("b_WakeUp", false);
+                animator.SetBool("b_LightSleep", false);
+                animator.SetBool("b_DeepSleep", false);
+
+                ClearVFX();
+                cryVFX.SetActive(true);
+                cloth.SetActive(true);
+                diaper.SetActive(false);
+                thermometer.SetActive(true);
+                
+              
+
+
+                //Blanket
+                //Thermometer
+                //Steam
+                //Red Body
+
+                break;
+
+            case BabyState.MildFever:
+                 animator.SetBool("b_Cry", false);
+                 animator.SetBool("b_Angry", false);
+                 animator.SetBool("b_Happy", false);
+                 animator.SetBool("b_Laugh", false);
+                 animator.SetBool("b_Clap", false);
+                 animator.SetBool("b_Walk", false);
+                 animator.SetBool("b_Sleep", false);
+                 animator.SetBool("b_LieCry", false);
+                 animator.SetBool("b_WakeUp", false);
+                 animator.SetBool("b_LightSleep", false);
+                 animator.SetBool("b_DeepSleep", false);
+                ClearVFX();              
+                cloth.SetActive(true);
+                diaper.SetActive(false);
+                thermometer.SetActive(true);
+
+
+
+                break;
+
+            case BabyState.LukeWarm:
+                 animator.SetBool("b_Cry", false);
+                 animator.SetBool("b_Angry", false);
+                 animator.SetBool("b_Happy", false);
+                 animator.SetBool("b_Laugh", true);
+                 animator.SetBool("b_Clap", false);
+                 animator.SetBool("b_Walk", false);
+                 animator.SetBool("b_Sleep", false);
+                 animator.SetBool("b_LieCry", false);
+                 animator.SetBool("b_WakeUp", false);
+                 animator.SetBool("b_LightSleep", false);
+                 animator.SetBool("b_DeepSleep", false);
+                ClearVFX();
+                diaper.SetActive(true);
+                thermometer.SetActive(true);
+                break;
+
+            case BabyState.Healthy:
+                animator.SetBool("b_Cry", false);
+                animator.SetBool("b_Angry", false);
+                animator.SetBool("b_Happy", true);
+                animator.SetBool("b_Laugh", false);
+                animator.SetBool("b_Clap", false);
+                animator.SetBool("b_Walk", false);
+                animator.SetBool("b_Sleep", false);
+                animator.SetBool("b_LieCry", false);
+                animator.SetBool("b_WakeUp", false);
+                animator.SetBool("b_LightSleep", false);
+                animator.SetBool("b_DeepSleep", false);
+                ClearVFX();
+             
                 break;
 
 

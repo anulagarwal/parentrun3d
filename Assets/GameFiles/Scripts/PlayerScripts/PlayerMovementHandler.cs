@@ -53,12 +53,13 @@ public class PlayerMovementHandler : MonoBehaviour
         if (movementJS)
         {
             movementDirection = new Vector3(movementJS.Horizontal, 0, 1).normalized;
-
             if (playerGroundCheckersHander.RestrictLeftMovement)
             {
+
                 if (movementDirection.x < 0)
                 {
                     movementDirection.x = 0;
+
                 }
             }
 
@@ -66,6 +67,8 @@ public class PlayerMovementHandler : MonoBehaviour
             {
                 if (movementDirection.x > 0)
                 {
+                    print(movementJS.Horizontal);
+
                     movementDirection.x = 0;
                 }
             }

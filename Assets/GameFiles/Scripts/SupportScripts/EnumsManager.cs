@@ -43,7 +43,12 @@ public enum BabyState
     DeepSleep,
     LightSleep,
     WakingUp,
-    Awake
+    Awake,
+    HighFever,
+    LowFever,
+    MildFever,
+    LukeWarm,
+    Healthy
 };
 public enum GameType
 {
