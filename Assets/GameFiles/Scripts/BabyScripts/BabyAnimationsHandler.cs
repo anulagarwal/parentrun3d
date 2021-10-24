@@ -347,7 +347,7 @@ public class BabyAnimationsHandler : MonoBehaviour
                 animator.SetBool("b_LightSleep", false);
                 animator.SetBool("b_DeepSleep", false);
                 ClearVFX();
-             
+                diaper.SetActive(true);
                 break;
 
 

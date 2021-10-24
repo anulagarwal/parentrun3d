@@ -25,11 +25,11 @@ public class PlayerSingleton : MonoBehaviour
     [SerializeField] private GameObject playerCart = null;
     [SerializeField] private Transform groundPointTransform = null;
 
-    private int playerEnergy = 0;
+    [SerializeField] private int playerEnergy = 0;
     private Image playerEnergyBar = null;
    [SerializeField] private int energyBarIndex = 0;
     private int energyCapTemp = 0;
-    private int targetEnergy;
+    [SerializeField] private int targetEnergy;
     #endregion
 
     #region MonoBehaviour Functions
@@ -81,14 +81,14 @@ public class PlayerSingleton : MonoBehaviour
         targetEnergy += amount;
         UpdateEnergyBar((float)targetEnergy / (float)playerEnergyCapacity);
 
-        if (targetEnergy >= playerEnergyCapacity)
+        if (targetEnergy > playerEnergyCapacity)
         {
             targetEnergy = 0;
         }
 
-        if (targetEnergy <= 0)
+        if (targetEnergy < 0)
         {
-            targetEnergy = 0;
+            targetEnergy = playerEnergyCapacity;
         }
 
     }
@@ -194,7 +194,6 @@ public class PlayerSingleton : MonoBehaviour
     private void UpdateEnergyBar(float value)
     {
         playerEnergyBar.fillAmount = value;
-       // print(value);
             if (value >= 1f)
             {
                 if (energyBarIndex < playerEnergyBars.Count)
@@ -218,7 +217,9 @@ public class PlayerSingleton : MonoBehaviour
                 {
                     energyBarIndex--;
                    ReduceEnergyBar();
-               
+                playerEnergyBar.fillAmount =1- value;
+                targetEnergy = playerEnergyCapacity;
+
                 if (gameType == GameType.Sleep)
                 {
                     UpdateBabySleep();
@@ -256,7 +257,7 @@ public class PlayerSingleton : MonoBehaviour
         }
      
         playerEnergyBar.fillAmount = 0;
-        playerEnergyCapacity += energyCapTemp;
+        //playerEnergyCapacity += energyCapTemp;
        // playerEnergyCapacity = energyCapTemp* (Mathf.Max(energyBarIndex,1));
         //playeren
     }
@@ -272,7 +273,7 @@ public class PlayerSingleton : MonoBehaviour
 
         playerEnergyBar = playerEnergyBars[energyBarIndex];
         playerEnergyBar.fillAmount = 0;
-        playerEnergyCapacity -= energyCapTemp;
+        //playerEnergyCapacity -= energyCapTemp;
     }
     #endregion
 
