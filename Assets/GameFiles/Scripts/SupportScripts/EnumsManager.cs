@@ -48,7 +48,12 @@ public enum BabyState
     LowFever,
     MildFever,
     LukeWarm,
-    Healthy
+    Healthy,
+    SUPERBORED,
+    NOTINTERESTED,
+    BORED,
+    ENJOYING,
+    FUN
 };
 public enum GameType
 {

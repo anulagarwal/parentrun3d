@@ -159,6 +159,32 @@ public class PlayerSingleton : MonoBehaviour
         }
     }
 
+    void UpdateBabyFun()
+    {
+        switch (energyBarIndex)
+        {
+
+            case 0:
+                BabySingleton.Instance.GetBabyAnimationsHandler.SwitchBabyAnimations(BabyState.SUPERBORED);
+                break;
+            case 1:
+                BabySingleton.Instance.GetBabyAnimationsHandler.SwitchBabyAnimations(BabyState.NOTINTERESTED);
+                break;
+
+            case 2:
+                BabySingleton.Instance.GetBabyAnimationsHandler.SwitchBabyAnimations(BabyState.BORED);
+                break;
+
+            case 3:
+                BabySingleton.Instance.GetBabyAnimationsHandler.SwitchBabyAnimations(BabyState.ENJOYING);
+                break;
+
+            case 4:
+                BabySingleton.Instance.GetBabyAnimationsHandler.SwitchBabyAnimations(BabyState.FUN);
+                break;
+        }
+    }
+
     public void EnableCanvas(bool value)
     {
         canvas.SetActive(value);
@@ -208,6 +234,10 @@ public class PlayerSingleton : MonoBehaviour
                 {
                     UpdateBabyHealth();
                 }
+                if (gameType == GameType.Playground)
+                {
+                    UpdateBabyFun();
+                }
             }
                
             }
@@ -215,8 +245,8 @@ public class PlayerSingleton : MonoBehaviour
             {
                 if (energyBarIndex > 0)
                 {
-                    energyBarIndex--;
-                   ReduceEnergyBar();
+                energyBarIndex--;
+                ReduceEnergyBar();
                 playerEnergyBar.fillAmount =1- value;
                 targetEnergy = playerEnergyCapacity;
 
@@ -227,6 +257,10 @@ public class PlayerSingleton : MonoBehaviour
                 if (gameType == GameType.Health)
                 {
                     UpdateBabyHealth();
+                }
+                if (gameType == GameType.Playground)
+                {
+                    UpdateBabyFun();
                 }
             }
                 
