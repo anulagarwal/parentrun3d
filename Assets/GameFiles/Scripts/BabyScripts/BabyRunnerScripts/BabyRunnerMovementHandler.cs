@@ -149,5 +149,22 @@ public class BabyRunnerMovementHandler : MonoBehaviour
             babyRunnerMovementCore -= PlayerPathTurn;
         }
     }
+
+    public void KnockdownBaby(bool value)
+    {
+        if (value)
+        {
+            babyRunnerAnimationsHandler.SwitchBabyRunnerAnimation(BabyRunnerAnimationsState.Knockdown);
+            EnablePlayerTranslation(false);
+            Invoke("KnockdownBabyEnd", 4f);
+        }
+    }
+    #endregion
+
+    #region Invoke Functions
+    private void KnockdownBabyEnd()
+    {
+        EnablePlayerTranslation(true);
+    }
     #endregion
 }
