@@ -15430,6 +15430,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6031e3d87f437d846bf01a60467a2133, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scaleSpeed: 0
+  maxScale: 0
+  minScale: 0
   babyRunnerMovementHandler: {fileID: 5773262350078463243}
   babyRunnerAnimationsHandler: {fileID: 5773262350078463242}
 --- !u!114 &5773262350078463243
@@ -15445,7 +15448,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 10
-  turnSpeed: 80
+  turnSpeed: 2
   babyRunnerAnimationsHandler: {fileID: 5773262350078463242}
   babyGroundCheckersHander: {fileID: 7833783471714324315}
 --- !u!114 &5773262350078463242
@@ -17532,7 +17535,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ebcd6f09d88ce9408d7d547c4d89aa4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  range: 0.2
+  range: 0.65
   layerMask:
     serializedVersion: 2
     m_Bits: 8

@@ -17,6 +17,7 @@ public class BabyRunnerCollisionAndTriggerEventsHandler : MonoBehaviour
         }
         else if (other.gameObject.tag == "SlideEndPoint")
         {
+            transform.position = new Vector3(transform.position.x, 0, transform.position.z);
             BabyRunnerSingleton.Instance.GetBabyRunnerMovementHandler.EnableSlideMech(false, null, BabyRunnerSlideState.Default);
         }
 
