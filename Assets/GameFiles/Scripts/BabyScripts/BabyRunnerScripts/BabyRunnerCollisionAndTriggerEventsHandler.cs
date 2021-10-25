@@ -31,12 +31,11 @@ public class BabyRunnerCollisionAndTriggerEventsHandler : MonoBehaviour
             {
                 if (obstacleHandler.GetEnergy < 0)
                 {
-                   
-
+                    BabyRunnerSingleton.Instance.ScaleDownBaby();
                 }
                 else if (obstacleHandler.GetEnergy > 0)
-                {                    
-
+                {
+                    BabyRunnerSingleton.Instance.ScaleUpBaby();
                 }
                 //PlayerSingleton.Instance.UpdatePlayerEnergy(obstacleHandler.GetEnergy);
                 Destroy(other.gameObject);
