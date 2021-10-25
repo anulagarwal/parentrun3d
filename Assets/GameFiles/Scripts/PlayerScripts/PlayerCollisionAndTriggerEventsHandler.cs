@@ -20,12 +20,12 @@ public class PlayerCollisionAndTriggerEventsHandler : MonoBehaviour
             BabySingleton.Instance.GetBabyAnimationsHandler.SwitchBabyAnimations(BabyState.Clap);
             //BabySingleton.Instance.SwitchRuntimeAnimatorController(BabyAnimators.Default);
             LevelManager.Instance.Victory();
-            //LevelUIManager.Instance.SwitchUIPanel(UIPanelState.GameOver, GameOverState.Victory);
+            LevelUIManager.Instance.SwitchUIPanel(UIPanelState.GameOver, GameOverState.Victory);
 
             BabySingleton.Instance.DerackBaby();
             PlayerSingleton.Instance.EnablePlayerHingeJoint(false);
             PlayerSingleton.Instance.EnableCanvas(false);
-            Invoke("MoveToEndPoint", 2f);
+         //   Invoke("MoveToEndPoint", 2f);
         }
         else if (other.gameObject.tag == "Obstacle")
         {

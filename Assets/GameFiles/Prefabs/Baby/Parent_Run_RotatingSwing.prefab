@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 250163159232767506}
   - component: {fileID: 3807540065362143671}
   - component: {fileID: 1383712078223285629}
+  - component: {fileID: 5729302452197473214}
   m_Layer: 0
   m_Name: Parent_Run_RotatingSwing
   m_TagString: Untagged
@@ -85,6 +86,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &5729302452197473214
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 590836583289404584}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7a86a1158703884fa70e0d2e95d8d9d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotSpeed: 5
+  rotAxis: {x: 0, y: 1, z: 0}
 --- !u!1001 &356483024387733483
 PrefabInstance:
   m_ObjectHideFlags: 0

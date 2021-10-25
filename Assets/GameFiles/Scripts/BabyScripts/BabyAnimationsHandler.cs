@@ -358,6 +358,7 @@ public class BabyAnimationsHandler : MonoBehaviour
     {
         foreach(GameObject g in vfx)
         {
+            if(g!=null)
             g.SetActive(false);
         }
     }

@@ -19,6 +19,29 @@ public class BabyRunnerCollisionAndTriggerEventsHandler : MonoBehaviour
         {
             BabyRunnerSingleton.Instance.GetBabyRunnerMovementHandler.EnableSlideMech(false, null, BabyRunnerSlideState.Default);
         }
+
+        if (other.gameObject.tag == "Turn")
+        {
+            BabyRunnerSingleton.Instance.GetBabyRunnerMovementHandler.EnablePlayerPathTurn(true, other.gameObject.GetComponent<TurnTriggerHandler>().GetTurnAngle);
+        }
+
+        if (other.gameObject.tag == "Obstacle")
+        {
+            if (other.gameObject.TryGetComponent<ObstacleHandler>(out ObstacleHandler obstacleHandler))
+            {
+                if (obstacleHandler.GetEnergy < 0)
+                {
+                   
+
+                }
+                else if (obstacleHandler.GetEnergy > 0)
+                {                    
+
+                }
+                //PlayerSingleton.Instance.UpdatePlayerEnergy(obstacleHandler.GetEnergy);
+                Destroy(other.gameObject);
+            }
+        }
     }
     #endregion
 }

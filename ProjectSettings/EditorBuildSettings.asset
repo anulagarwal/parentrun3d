@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/GameFiles/Scenes/Rahul_Level2.unity
     guid: af2bfb189ae1b4f17aaef8d14b674e53
+  - enabled: 1
+    path: Assets/GameFiles/Scenes/Rahul_Level3.unity
+    guid: ea5faf1b5a7134b329755196d076ffbe
   m_configObjects: {}

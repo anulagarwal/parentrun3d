@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 2138677392}
-  m_IndirectSpecularColor: {r: 0.17299032, g: 0.6664945, b: 0.9190012, a: 1}
+  m_IndirectSpecularColor: {r: 0.17296991, g: 0.6666198, b: 0.91835046, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -8616,7 +8616,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 2.14, y: 2.37, z: 1}
   m_Center: {x: 0, y: 1.89, z: 0}
 --- !u!4 &382790973 stripped
 Transform:
@@ -9522,7 +9522,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 2.14, y: 2.37, z: 1}
   m_Center: {x: 0, y: 1.89, z: 0}
 --- !u!1 &470867791
 GameObject:
@@ -9735,7 +9735,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 2.14, y: 2.37, z: 1}
   m_Center: {x: 0, y: 1.89, z: 0}
 --- !u!4 &514799098 stripped
 Transform:
@@ -22722,7 +22722,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 2.14, y: 2.37, z: 1}
   m_Center: {x: 0, y: 1.89, z: 0}
 --- !u!1001 &834399458
 PrefabInstance:
@@ -28213,7 +28213,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 2.14, y: 2.37, z: 1}
   m_Center: {x: 0, y: 1.89, z: 0}
 --- !u!1 &896957990
 GameObject:
@@ -33122,7 +33122,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 2.14, y: 2.37, z: 1}
   m_Center: {x: 0, y: 1.89, z: 0}
 --- !u!4 &915544210 stripped
 Transform:
@@ -33310,7 +33310,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 2.14, y: 2.37, z: 1}
   m_Center: {x: 0, y: 1.89, z: 0}
 --- !u!1001 &946452672
 PrefabInstance:
@@ -34821,7 +34821,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 2.14, y: 2.37, z: 1}
   m_Center: {x: 0, y: 1.89, z: 0}
 --- !u!4 &1103915782 stripped
 Transform:
@@ -46796,7 +46796,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 2.14, y: 2.37, z: 1}
   m_Center: {x: 0, y: 1.89, z: 0}
 --- !u!1001 &1350727321
 PrefabInstance:
@@ -48180,7 +48180,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 2.14, y: 2.37, z: 1}
   m_Center: {x: 0, y: 1.89, z: 0}
 --- !u!4 &1445248097 stripped
 Transform:
@@ -52228,7 +52228,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 2.14, y: 2.37, z: 1}
   m_Center: {x: 0, y: 1.89, z: 0}
 --- !u!1001 &1805523763
 PrefabInstance:
@@ -54733,7 +54733,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 2.14, y: 2.37, z: 1}
   m_Center: {x: 0, y: 1.89, z: 0}
 --- !u!1 &2042036371
 GameObject:
@@ -60339,7 +60339,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 2.14, y: 2.37, z: 1}
   m_Center: {x: 0, y: 1.89, z: 0}
 --- !u!1001 &2117539396
 PrefabInstance:
@@ -60869,7 +60869,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 2.14, y: 2.37, z: 1}
   m_Center: {x: 0, y: 1.89, z: 0}
 --- !u!1001 &2138040293
 PrefabInstance:
@@ -61366,13 +61366,45 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3473839287787341064, guid: 9fa7675ff7af0431197476dce0ad11cc, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.0008153334
+      objectReference: {fileID: 0}
+    - target: {fileID: 3473839287787341064, guid: 9fa7675ff7af0431197476dce0ad11cc, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.005586858
+      objectReference: {fileID: 0}
+    - target: {fileID: 3473839287787341064, guid: 9fa7675ff7af0431197476dce0ad11cc, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.9895025
+      objectReference: {fileID: 0}
+    - target: {fileID: 3473839287787341064, guid: 9fa7675ff7af0431197476dce0ad11cc, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.14440575
+      objectReference: {fileID: 0}
+    - target: {fileID: 3473839287787341064, guid: 9fa7675ff7af0431197476dce0ad11cc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 180
+      objectReference: {fileID: 0}
+    - target: {fileID: 3473839287794536090, guid: 9fa7675ff7af0431197476dce0ad11cc, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 63e61ebdffd4e45ef98ce59ca7c8aa05, type: 2}
     - target: {fileID: 4392390333752543623, guid: 9fa7675ff7af0431197476dce0ad11cc, type: 3}
       propertyPath: canvas
       value: 
       objectReference: {fileID: 630234919}
+    - target: {fileID: 4392390333752543623, guid: 9fa7675ff7af0431197476dce0ad11cc, type: 3}
+      propertyPath: gameType
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 5796636005262403802, guid: 9fa7675ff7af0431197476dce0ad11cc, type: 3}
       propertyPath: m_Name
       value: Essentials
+      objectReference: {fileID: 0}
+    - target: {fileID: 7355981094522354557, guid: 9fa7675ff7af0431197476dce0ad11cc, type: 3}
+      propertyPath: startState
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 7526216311368862200, guid: 9fa7675ff7af0431197476dce0ad11cc, type: 3}
       propertyPath: m_ConnectedAnchor.x

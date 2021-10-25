@@ -13,7 +13,10 @@ public class ObstacleTranslationHandler : MonoBehaviour
     private Vector3 direction = Vector3.zero;
     private bool moveTowardsPoint_1 = false;
     #endregion
-
+    private void Start()
+    {
+        
+    }
     #region MonoBehaviour Functions
     private void Update()
     {
