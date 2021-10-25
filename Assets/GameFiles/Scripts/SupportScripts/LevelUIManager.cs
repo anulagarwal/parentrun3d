@@ -39,7 +39,14 @@ public class LevelUIManager : MonoBehaviour
     #region Btn Events Functions
     public void OnClick_PlayBtn()
     {
-        PlayerSingleton.Instance.GetPlayerMovementHandler.enabled = true;
+        if (PlayerSingleton.Instance)
+        {
+            PlayerSingleton.Instance.GetPlayerMovementHandler.enabled = true;
+        }
+        else if (BabyRunnerSingleton.Instance)
+        {
+            BabyRunnerSingleton.Instance.GetBabyRunnerMovementHandler.enabled = true;
+        }
         SwitchUIPanel(UIPanelState.Gameplay);
     }
     #endregion

@@ -92,3 +92,12 @@ public enum BabyAnimators
     Sleeping,
     Default
 };
+
+public enum BabyRunnerAnimationsState
+{
+    Idle,
+    Slide,
+    Run,
+    Victory,
+    Sit
+};
