@@ -117,6 +117,7 @@ public class PlayerCollisionAndTriggerEventsHandler : MonoBehaviour
                 Destroy(showerHandler.GetShowerPS.transform.gameObject, 5f);
             }
         }
+
         if (other.gameObject.tag == "Breaker")
         {
             if (other.gameObject.TryGetComponent<ObstacleHandler>(out ObstacleHandler obstacleHandler))

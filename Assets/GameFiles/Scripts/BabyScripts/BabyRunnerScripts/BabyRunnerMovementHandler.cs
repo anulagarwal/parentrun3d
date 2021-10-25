@@ -16,6 +16,7 @@ public class BabyRunnerMovementHandler : MonoBehaviour
     private Vector3 movementDirection = Vector3.zero;
     private Quaternion newTurnRotation = Quaternion.identity;
     private VariableJoystick movementJS = null;
+    private Transform targetTransform = null;
     #endregion
 
     #region Delegate
@@ -86,9 +87,38 @@ public class BabyRunnerMovementHandler : MonoBehaviour
             EnablePlayerPathTurn(false);
         }
     }
+
+    private void BabySlideMech()
+    {
+        transform.position = Vector3.MoveTowards(transform.position, targetTransform.position, Time.deltaTime * moveSpeed);
+    }
     #endregion
 
     #region Public Core Functions
+    public void EnableSlideMech(bool value, Transform target, BabyRunnerSlideState state = BabyRunnerSlideState.Default)
+    {
+        babyRunnerMovementCore = null;
+        if (value)
+        {
+            switch (state)
+            {
+                case BabyRunnerSlideState.Climb:
+                    BabyRunnerSingleton.Instance.GetBabyRunnerAnimationsHandler.SwitchBabyRunnerAnimation(BabyRunnerAnimationsState.Climb);
+                    break;
+                case BabyRunnerSlideState.Slide:
+                    BabyRunnerSingleton.Instance.GetBabyRunnerAnimationsHandler.SwitchBabyRunnerAnimation(BabyRunnerAnimationsState.Slide);
+                    break;
+            }
+            targetTransform = target;
+            babyRunnerMovementCore += BabySlideMech;
+        }
+        else
+        {
+            BabyRunnerSingleton.Instance.GetBabyRunnerAnimationsHandler.SwitchBabyRunnerAnimation(BabyRunnerAnimationsState.Run);
+            EnablePlayerTranslation(true);
+        }
+    }
+
     public void EnablePlayerTranslation(bool value)
     {
         if (value)

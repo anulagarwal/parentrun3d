@@ -12,6 +12,9 @@ TagManager:
   - Breaker
   - Audio
   - Score
+  - SlideStair
+  - SlideTop
+  - SlideEndPoint
   layers:
   - Default
   - TransparentFX

@@ -99,5 +99,13 @@ public enum BabyRunnerAnimationsState
     Slide,
     Run,
     Victory,
-    Sit
+    Sit,
+    Climb
+};
+
+public enum BabyRunnerSlideState
+{
+    Climb,
+    Slide,
+    Default
 };
