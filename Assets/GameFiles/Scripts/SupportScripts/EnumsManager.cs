@@ -100,7 +100,8 @@ public enum BabyRunnerAnimationsState
     Run,
     Victory,
     Sit,
-    Climb
+    Climb,
+    Knockdown
 };
 
 public enum BabyRunnerSlideState

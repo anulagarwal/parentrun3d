@@ -11,6 +11,10 @@ public class LevelManager : MonoBehaviour
     [Header("Components Reference")]
     [SerializeField] private GameObject confettiObj = null;
     [SerializeField] private CinemachineVirtualCameraBase cmcv_1 = null;
+    [SerializeField] private GameObject positiveVfx = null;
+    [SerializeField] private GameObject negativeVfx = null;
+
+
     #endregion
 
     #region MonoBehaviour Functions
@@ -35,6 +39,15 @@ public class LevelManager : MonoBehaviour
         confettiObj.SetActive(true);
     }
 
+    public void SpawnPositiveVFX(Vector3 pos)
+    {
+        Destroy(Instantiate(positiveVfx, new Vector3( pos.x,1.5f,pos.z), Quaternion.identity), 2f);
+    }
+
+    public void SpawnNegativeVFX(Vector3 pos)
+    {
+        Destroy(Instantiate(negativeVfx, new Vector3(pos.x, 1.5f, pos.z), Quaternion.identity), 2f);
+    }
     public void SwitchCMCV(CMCV activeCMCV)
     {
         if (activeCMCV == CMCV.PlayerCMCV)

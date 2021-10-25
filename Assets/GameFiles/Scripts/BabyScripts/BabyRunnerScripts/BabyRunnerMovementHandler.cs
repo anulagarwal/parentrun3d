@@ -12,6 +12,9 @@ public class BabyRunnerMovementHandler : MonoBehaviour
     [Header("Components Reference")]
     [SerializeField] private BabyRunnerAnimationsHandler babyRunnerAnimationsHandler = null;
     [SerializeField] private PlayerGroundCheckersHander babyGroundCheckersHander = null;
+    [SerializeField] private GameObject positiveVfx = null;
+    [SerializeField] private GameObject negativeVfx = null;
+
 
     private Vector3 movementDirection = Vector3.zero;
     private Quaternion newTurnRotation = Quaternion.identity;

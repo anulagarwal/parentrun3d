@@ -20,12 +20,19 @@ public class PlayerCollisionAndTriggerEventsHandler : MonoBehaviour
             BabySingleton.Instance.GetBabyAnimationsHandler.SwitchBabyAnimations(BabyState.Clap);
             //BabySingleton.Instance.SwitchRuntimeAnimatorController(BabyAnimators.Default);
             LevelManager.Instance.Victory();
-            LevelUIManager.Instance.SwitchUIPanel(UIPanelState.GameOver, GameOverState.Victory);
 
             BabySingleton.Instance.DerackBaby();
             PlayerSingleton.Instance.EnablePlayerHingeJoint(false);
             PlayerSingleton.Instance.EnableCanvas(false);
-         //   Invoke("MoveToEndPoint", 2f);
+
+            if(PlayerSingleton.Instance.gameType == GameType.Hunger)
+            {
+                Invoke("MoveToEndPoint", 2f);
+            }
+            else
+            {
+                LevelUIManager.Instance.SwitchUIPanel(UIPanelState.GameOver, GameOverState.Victory);
+            }
         }
         else if (other.gameObject.tag == "Obstacle")
         {
@@ -43,6 +50,7 @@ public class PlayerCollisionAndTriggerEventsHandler : MonoBehaviour
                     {
                         
                     }
+                    LevelManager.Instance.SpawnNegativeVFX(other.transform.position);
 
                 }
                 else if (obstacleHandler.GetEnergy > 0)
@@ -57,7 +65,7 @@ public class PlayerCollisionAndTriggerEventsHandler : MonoBehaviour
                     {
                         //Change Anim
                     }
-
+                    LevelManager.Instance.SpawnPositiveVFX(other.transform.position);
                 }
                 PlayerSingleton.Instance.UpdatePlayerEnergy(obstacleHandler.GetEnergy);
                 Destroy(other.gameObject);
@@ -114,7 +122,7 @@ public class PlayerCollisionAndTriggerEventsHandler : MonoBehaviour
                 showerHandler.GetShowerPS.transform.parent.SetParent(this.transform);
                 showerHandler.GetShowerPS.transform.parent.localPosition = new Vector3(0, 1, -1.4f);
 
-                Destroy(showerHandler.GetShowerPS.transform.gameObject, 5f);
+                Destroy(showerHandler.GetShowerPS.transform.parent.gameObject, 5f);
             }
         }
 
