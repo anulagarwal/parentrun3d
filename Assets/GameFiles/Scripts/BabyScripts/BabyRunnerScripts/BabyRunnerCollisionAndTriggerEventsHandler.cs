@@ -46,6 +46,18 @@ public class BabyRunnerCollisionAndTriggerEventsHandler : MonoBehaviour
                 Destroy(other.gameObject);
             }
         }
+        print(other.gameObject.tag);
+        if(other.gameObject.tag == "Knockback")
+        {
+            BabyRunnerSingleton.Instance.GetBabyRunnerMovementHandler.KnockdownBaby(true);
+        }
+
+        if(other.gameObject.tag == "Finish")
+        {
+            BabyRunnerSingleton.Instance.GetBabyRunnerAnimationsHandler.SwitchBabyRunnerAnimation(BabyRunnerAnimationsState.Victory);
+            LevelManager.Instance.Victory();
+            LevelUIManager.Instance.SwitchUIPanel(UIPanelState.GameOver, GameOverState.Victory);
+        }
     }
     #endregion
 }

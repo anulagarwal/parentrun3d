@@ -24,15 +24,7 @@ public class PlayerCollisionAndTriggerEventsHandler : MonoBehaviour
             BabySingleton.Instance.DerackBaby();
             PlayerSingleton.Instance.EnablePlayerHingeJoint(false);
             PlayerSingleton.Instance.EnableCanvas(false);
-
-            if(PlayerSingleton.Instance.gameType == GameType.Hunger)
-            {
-                Invoke("MoveToEndPoint", 2f);
-            }
-            else
-            {
-                LevelUIManager.Instance.SwitchUIPanel(UIPanelState.GameOver, GameOverState.Victory);
-            }
+            Invoke("MoveToEndPoint", 2f);           
         }
         else if (other.gameObject.tag == "Obstacle")
         {
@@ -42,7 +34,6 @@ public class PlayerCollisionAndTriggerEventsHandler : MonoBehaviour
                 {
                     if (PlayerSingleton.Instance.gameType == GameType.Hunger)
                     {
-                        BabySingleton.Instance.ScaleDownBaby();
                         BabySingleton.Instance.GetBabyAnimationsHandler.SwitchBabyAnimations(BabyState.Crying);
                     }
 
@@ -51,13 +42,13 @@ public class PlayerCollisionAndTriggerEventsHandler : MonoBehaviour
                         
                     }
                     LevelManager.Instance.SpawnNegativeVFX(other.transform.position);
+                    BabySingleton.Instance.ScaleDownBaby();
 
                 }
                 else if (obstacleHandler.GetEnergy > 0)
                 {
                     if (PlayerSingleton.Instance.gameType == GameType.Hunger)
                     {
-                        BabySingleton.Instance.ScaleUpBaby();
                         BabySingleton.Instance.GetBabyAnimationsHandler.SwitchBabyAnimations(BabyState.Happy);
                     }
 
@@ -65,6 +56,8 @@ public class PlayerCollisionAndTriggerEventsHandler : MonoBehaviour
                     {
                         //Change Anim
                     }
+                    BabySingleton.Instance.ScaleUpBaby();
+
                     LevelManager.Instance.SpawnPositiveVFX(other.transform.position);
                 }
                 PlayerSingleton.Instance.UpdatePlayerEnergy(obstacleHandler.GetEnergy);

@@ -39,6 +39,7 @@ public class BabyAnimationsHandler : MonoBehaviour
 
     private void Start()
     {
+        
         vfx.Add(pukeVfx);
         vfx.Add(cryVFX);
         vfx.Add(zzzVFX);

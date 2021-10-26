@@ -21,8 +21,6 @@ public class PlayerGroundCheckersHander : MonoBehaviour
         {
             RestrictRightMovement = true;
             RestrictLeftMovement = false;
-            print("right r");
-
         }
         else
         {
@@ -33,7 +31,6 @@ public class PlayerGroundCheckersHander : MonoBehaviour
         {
             RestrictRightMovement = false;
             RestrictLeftMovement = true;
-            print("left r");
         }
         else
         {

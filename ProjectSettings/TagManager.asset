@@ -15,6 +15,7 @@ TagManager:
   - SlideStair
   - SlideTop
   - SlideEndPoint
+  - Knockback
   layers:
   - Default
   - TransparentFX
