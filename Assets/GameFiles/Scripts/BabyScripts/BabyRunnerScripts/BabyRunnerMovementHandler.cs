@@ -8,6 +8,7 @@ public class BabyRunnerMovementHandler : MonoBehaviour
     [Header("Attributes")]
     [SerializeField] private float moveSpeed = 0;
     [SerializeField] private float turnSpeed = 0f;
+    [SerializeField] private float jumpSpeed = 0f;
 
     [Header("Components Reference")]
     [SerializeField] private BabyRunnerAnimationsHandler babyRunnerAnimationsHandler = null;
@@ -15,11 +16,13 @@ public class BabyRunnerMovementHandler : MonoBehaviour
     [SerializeField] private GameObject positiveVfx = null;
     [SerializeField] private GameObject negativeVfx = null;
 
-
+    private Quaternion defaultRotation = Quaternion.identity;
     private Vector3 movementDirection = Vector3.zero;
     private Quaternion newTurnRotation = Quaternion.identity;
     private VariableJoystick movementJS = null;
     private Transform targetTransform = null;
+    private Transform targetJumpPoint = null;
+    private int jumpPointIndexTemp = 0;
     #endregion
 
     #region Delegate
@@ -46,6 +49,8 @@ public class BabyRunnerMovementHandler : MonoBehaviour
 
     #region Getter And Setter
     public float TargetTurnAngle { get; set; }
+
+    public List<Transform> SeasawJumpPoints { get; set; }
     #endregion
 
     #region Private Core Functions
@@ -95,6 +100,29 @@ public class BabyRunnerMovementHandler : MonoBehaviour
     {
         transform.position = Vector3.MoveTowards(transform.position, targetTransform.position, Time.deltaTime * moveSpeed);
     }
+
+    private void SeasawJumpRideMech()
+    {
+        if (Vector3.Distance(transform.position, targetJumpPoint.position) > 0.2f)
+        {
+            transform.position = Vector3.MoveTowards(transform.position, targetJumpPoint.position, Time.deltaTime * jumpSpeed);
+        }
+        else
+        {
+            jumpPointIndexTemp++;
+
+            if (jumpPointIndexTemp >= SeasawJumpPoints.Count)
+            {
+                babyRunnerMovementCore = null;
+                transform.parent = null;
+                EnablePlayerTranslation(true);
+            }
+            else
+            {
+                targetJumpPoint = SeasawJumpPoints[jumpPointIndexTemp];
+            }
+        }
+    }
     #endregion
 
     #region Public Core Functions
@@ -126,6 +154,8 @@ public class BabyRunnerMovementHandler : MonoBehaviour
     {
         if (value)
         {
+            transform.rotation = defaultRotation;
+            transform.position = new Vector3(transform.position.x, 0, transform.position.z);
             BabyRunnerSingleton.Instance.GetBabyRunnerAnimationsHandler.SwitchBabyRunnerAnimation(BabyRunnerAnimationsState.Run);
             babyRunnerMovementCore += PlayerTranslation;
         }
@@ -154,16 +184,35 @@ public class BabyRunnerMovementHandler : MonoBehaviour
     {
         if (value)
         {
-            babyRunnerAnimationsHandler.SwitchBabyRunnerAnimation(BabyRunnerAnimationsState.Knockdown);
+            defaultRotation = transform.rotation;
             EnablePlayerTranslation(false);
+            babyRunnerAnimationsHandler.SwitchBabyRunnerAnimation(BabyRunnerAnimationsState.Knockdown);
             Invoke("KnockdownBabyEnd", 4f);
         }
+    }
+
+    public void EnableSeasawRide(bool value)
+    {
+        if (value)
+        {
+            defaultRotation = transform.rotation;
+            EnablePlayerTranslation(false);
+            babyRunnerAnimationsHandler.SwitchBabyRunnerAnimation(BabyRunnerAnimationsState.Sit);
+        }
+    }
+
+    public void SeasawJumpMech()
+    {
+        targetJumpPoint = SeasawJumpPoints[jumpPointIndexTemp];
+        babyRunnerMovementCore += SeasawJumpRideMech;
     }
     #endregion
 
     #region Invoke Functions
     private void KnockdownBabyEnd()
     {
+        transform.rotation = defaultRotation;
+        transform.position = new Vector3(transform.position.x, 0, transform.position.z);
         EnablePlayerTranslation(true);
     }
     #endregion

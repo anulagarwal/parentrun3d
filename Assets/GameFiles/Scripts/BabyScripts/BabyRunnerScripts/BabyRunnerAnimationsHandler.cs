@@ -59,7 +59,7 @@ public class BabyRunnerAnimationsHandler : MonoBehaviour
                 break;
             case BabyRunnerAnimationsState.Knockdown:
                 babyRunnerAnimator.SetBool("b_Run", false);
-                babyRunnerAnimator.SetBool("b_Climb", true);
+                babyRunnerAnimator.SetBool("b_Climb", false);
                 babyRunnerAnimator.SetBool("b_Sit", false);
                 babyRunnerAnimator.SetBool("b_Slide", false);
                 babyRunnerAnimator.SetBool("b_Knockdown", true);

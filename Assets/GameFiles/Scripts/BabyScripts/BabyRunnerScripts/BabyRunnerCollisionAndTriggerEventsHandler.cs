@@ -42,14 +42,28 @@ public class BabyRunnerCollisionAndTriggerEventsHandler : MonoBehaviour
 
                     BabyRunnerSingleton.Instance.ScaleUpBaby();
                 }
+
                 //PlayerSingleton.Instance.UpdatePlayerEnergy(obstacleHandler.GetEnergy);
                 Destroy(other.gameObject);
             }
         }
-        print(other.gameObject.tag);
+
         if(other.gameObject.tag == "Knockback")
         {
+            Destroy(other.gameObject);
             BabyRunnerSingleton.Instance.GetBabyRunnerMovementHandler.KnockdownBaby(true);
+        }
+
+        if (other.gameObject.tag == "Seasaw")
+        {
+            if (other.gameObject.TryGetComponent<SeasawPlankHandler>(out SeasawPlankHandler seasawPlankHandler))
+            {
+                seasawPlankHandler.enabled = true;
+                BabyRunnerSingleton.Instance.GetBabyRunnerMovementHandler.EnableSeasawRide(true);
+                transform.position = seasawPlankHandler.GetSeatTransform.position;
+                transform.parent = seasawPlankHandler.GetSeatTransform;
+                BabyRunnerSingleton.Instance.GetBabyRunnerMovementHandler.SeasawJumpPoints = seasawPlankHandler.GetJumpPoints;
+            }
         }
 
         if(other.gameObject.tag == "Finish")
