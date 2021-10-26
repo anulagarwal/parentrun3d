@@ -131,6 +131,7 @@ public class BabyRunnerMovementHandler : MonoBehaviour
         babyRunnerMovementCore = null;
         if (value)
         {
+            defaultRotation = transform.rotation;
             switch (state)
             {
                 case BabyRunnerSlideState.Climb:

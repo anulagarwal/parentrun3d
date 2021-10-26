@@ -1066,8 +1066,8 @@ MonoBehaviour:
   minScale: 0
   babyRunnerMovementHandler: {fileID: 7769123357743063953}
   babyRunnerAnimationsHandler: {fileID: 7769123357743063952}
-  positiveVfx: {fileID: 0}
-  negativeVfx: {fileID: 0}
+  positiveVfx: {fileID: 3131759692330795922, guid: 1afa150c2ffa244fc9c4617fde76a6d1, type: 3}
+  negativeVfx: {fileID: 3131759692330795922, guid: 46786e7b735ba41ee8c4fb6567d275cc, type: 3}
 --- !u!114 &7769123357743063953
 MonoBehaviour:
   m_ObjectHideFlags: 0

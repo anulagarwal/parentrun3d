@@ -34,13 +34,15 @@ public class BabyRunnerCollisionAndTriggerEventsHandler : MonoBehaviour
                 {
                     BabyRunnerSingleton.Instance.SpawnNegativeVFX(other.transform.position);
 
-                    BabyRunnerSingleton.Instance.ScaleDownBaby();
+                    BabyRunnerSingleton.Instance.TargetScale -= .5f;
+                    BabyRunnerSingleton.Instance.EnableScaleDown(true);
                 }
                 else if (obstacleHandler.GetEnergy > 0)
                 {
                     BabyRunnerSingleton.Instance.SpawnPositiveVFX(other.transform.position);
 
-                    BabyRunnerSingleton.Instance.ScaleUpBaby();
+                    BabyRunnerSingleton.Instance.TargetScale += .5f;
+                    BabyRunnerSingleton.Instance.EnableScaleUp(true);
                 }
 
                 //PlayerSingleton.Instance.UpdatePlayerEnergy(obstacleHandler.GetEnergy);
@@ -68,8 +70,10 @@ public class BabyRunnerCollisionAndTriggerEventsHandler : MonoBehaviour
 
         if(other.gameObject.tag == "Finish")
         {
-            BabyRunnerSingleton.Instance.GetBabyRunnerAnimationsHandler.SwitchBabyRunnerAnimation(BabyRunnerAnimationsState.Victory);
-            LevelManager.Instance.Victory();
+            BabyRunnerSingleton.Instance.TargetScale = 3;
+            BabyRunnerSingleton.Instance.EnableScaleDown(true);
+            //BabyRunnerSingleton.Instance.GetBabyRunnerAnimationsHandler.SwitchBabyRunnerAnimation(BabyRunnerAnimationsState.Victory);
+            //LevelManager.Instance.Victory();
             LevelUIManager.Instance.SwitchUIPanel(UIPanelState.GameOver, GameOverState.Victory);
         }
     }

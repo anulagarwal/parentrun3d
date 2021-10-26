@@ -19,6 +19,12 @@ public class BabyRunnerSingleton : MonoBehaviour
     [SerializeField] private GameObject negativeVfx = null;
     #endregion
 
+    #region Delegates
+    public delegate void ScaleMech();
+
+    public ScaleMech scaleMech;
+    #endregion
+
     #region MonoBehaviour Functions
     private void Awake()
     {
@@ -28,18 +34,93 @@ public class BabyRunnerSingleton : MonoBehaviour
         }
         Instance = this;
     }
+
+    private void Start()
+    {
+        TargetScale = transform.localScale.x;
+    }
+
+    private void Update()
+    {
+        if (scaleMech != null)
+        {
+            scaleMech();
+        }
+    }
     #endregion
 
-    public void ScaleUpBaby()
+    #region Private Core Functions
+    private void ScaleUpBaby()
     {
-        this.transform.localScale += Vector3.one * scaleSpeed;
-        if (this.transform.localScale.x > maxScale)
+        if (transform.localScale.x < TargetScale)
         {
-            this.transform.localScale = new Vector3(maxScale, maxScale, maxScale);
+            this.transform.localScale += Vector3.one * scaleSpeed * Time.deltaTime;
+            if (this.transform.localScale.x > maxScale)
+            {
+                this.transform.localScale = new Vector3(maxScale, maxScale, maxScale);
+            }
+
+            if (TargetScale > maxScale)
+            {
+                TargetScale = maxScale;
+                EnableScaleUp(false);
+            }
         }
-
-
+        else
+        {
+            EnableScaleUp(false);
+        }
     }
+
+    private void ScaleDownBaby()
+    {
+        if (transform.localScale.x > TargetScale)
+        {
+            this.transform.localScale -= Vector3.one * scaleSpeed * Time.deltaTime;
+            if (this.transform.localScale.x < minScale)
+            {
+                this.transform.localScale = new Vector3(minScale, minScale, minScale);
+            }
+
+            if (TargetScale < minScale)
+            {
+                TargetScale = minScale;
+                EnableScaleDown(false);
+            }
+        }
+        else
+        {
+            EnableScaleDown(false);
+        }
+    }
+    #endregion
+
+    public void EnableScaleUp(bool value)
+    {
+        if (value)
+        {
+            scaleMech += ScaleUpBaby;
+        }
+        else
+        {
+            scaleMech -= ScaleUpBaby;
+        }
+    }
+
+    public void EnableScaleDown(bool value)
+    {
+        if (value)
+        {
+            scaleMech += ScaleDownBaby;
+        }
+        else
+        {
+            scaleMech -= ScaleDownBaby;
+            babyRunnerMovementHandler.enabled = false;
+            babyRunnerAnimationsHandler.SwitchBabyRunnerAnimation(BabyRunnerAnimationsState.Victory);
+        }
+    }
+
     public void SpawnPositiveVFX(Vector3 pos)
     {
         Destroy(Instantiate(positiveVfx, new Vector3(pos.x, 1.5f, pos.z), Quaternion.identity), 2f);
@@ -50,17 +131,11 @@ public class BabyRunnerSingleton : MonoBehaviour
         Destroy(Instantiate(negativeVfx, new Vector3(pos.x, 1.5f, pos.z), Quaternion.identity), 2f);
     }
 
-    public void ScaleDownBaby()
-    {
-        this.transform.localScale -= Vector3.one * scaleSpeed;
-        if (this.transform.localScale.x < minScale)
-        {
-            this.transform.localScale = new Vector3(minScale, minScale, minScale);
-        }
-    }
     #region Getter And Setter
     public BabyRunnerMovementHandler GetBabyRunnerMovementHandler { get => babyRunnerMovementHandler; }
    
     public BabyRunnerAnimationsHandler GetBabyRunnerAnimationsHandler { get => babyRunnerAnimationsHandler; }
+    
+    public float TargetScale { get; set; }
     #endregion
 }
