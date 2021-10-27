@@ -73,7 +73,6 @@ public class BabyRunnerMovementHandler : MonoBehaviour
             {
                 if (movementDirection.x > 0)
                 {
-                    print(movementJS.Horizontal);
 
                     movementDirection.x = 0;
                 }
@@ -115,11 +114,17 @@ public class BabyRunnerMovementHandler : MonoBehaviour
             {
                 babyRunnerMovementCore = null;
                 transform.parent = null;
+                transform.rotation = defaultRotation;
                 EnablePlayerTranslation(true);
+
             }
             else
             {
-                targetJumpPoint = SeasawJumpPoints[jumpPointIndexTemp];
+                if (SeasawJumpPoints[jumpPointIndexTemp] != null)
+                {
+                    targetJumpPoint = SeasawJumpPoints[jumpPointIndexTemp];
+                }
+
             }
         }
     }
@@ -204,6 +209,7 @@ public class BabyRunnerMovementHandler : MonoBehaviour
 
     public void SeasawJumpMech()
     {
+        jumpPointIndexTemp = 0;
         targetJumpPoint = SeasawJumpPoints[jumpPointIndexTemp];
         babyRunnerMovementCore += SeasawJumpRideMech;
     }

@@ -9,6 +9,8 @@ public class BabyRunnerSingleton : MonoBehaviour
 
     [Header("Attributes")]
     [SerializeField] private float scaleSpeed = 0f;
+    [SerializeField] private float scaleSpeedFinal = 0f;
+
     [SerializeField] private float maxScale;
     [SerializeField] private float minScale;
 
@@ -105,6 +107,17 @@ public class BabyRunnerSingleton : MonoBehaviour
             this.transform.localScale = new Vector3(minScale, minScale, minScale);
         }
     }
+
+    public void ScaleDownBabyFinal()
+    {
+        this.transform.localScale -= Vector3.one * scaleSpeedFinal * Time.deltaTime;
+        if (this.transform.localScale.x < minScale)
+        {
+            this.transform.localScale = new Vector3(minScale, minScale, minScale);
+            GetBabyRunnerMovementHandler.enabled = false;
+            LevelUIManager.Instance.SwitchUIPanel(UIPanelState.GameOver, GameOverState.Victory);
+        }
+    }
     #endregion
 
     public void EnableScaleUp(bool value)
@@ -132,7 +145,19 @@ public class BabyRunnerSingleton : MonoBehaviour
             babyRunnerAnimationsHandler.SwitchBabyRunnerAnimation(BabyRunnerAnimationsState.Victory);
         }
     }
-
+    public void EnableScaleDownFinal(bool value)
+    {
+        if (value)
+        {
+            scaleMech += ScaleDownBabyFinal;
+        }
+        else
+        {
+            scaleMech -= ScaleDownBabyFinal;
+            babyRunnerMovementHandler.enabled = false;
+            babyRunnerAnimationsHandler.SwitchBabyRunnerAnimation(BabyRunnerAnimationsState.Victory);
+        }
+    }
     public void SpawnPositiveVFX(Vector3 pos)
     {
         Destroy(Instantiate(positiveVfx, new Vector3(pos.x, 1.5f, pos.z), Quaternion.identity), 2f);

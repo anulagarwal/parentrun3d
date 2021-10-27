@@ -25,9 +25,9 @@ public class SeasawPlankHandler : MonoBehaviour
 
     private void Update()
     {
-        if (Quaternion.Angle(transform.rotation, targetRotation) > 1f)
+        if (Quaternion.Angle(transform.localRotation, targetRotation) > 1f)
         {
-            transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, Time.deltaTime * rotSpeed);
+            transform.localRotation = Quaternion.RotateTowards(transform.localRotation, targetRotation, Time.deltaTime * rotSpeed);
         }
         else
         {
