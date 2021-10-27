@@ -41,7 +41,7 @@ public class PlayerCollisionAndTriggerEventsHandler : MonoBehaviour
                     {
                         
                     }
-                    LevelManager.Instance.SpawnNegativeVFX(other.transform.position);
+                   // LevelManager.Instance.SpawnNegativeVFX(other.transform.position);
                     BabySingleton.Instance.ScaleDownBaby();
 
                 }
@@ -58,7 +58,7 @@ public class PlayerCollisionAndTriggerEventsHandler : MonoBehaviour
                     }
                     BabySingleton.Instance.ScaleUpBaby();
 
-                    LevelManager.Instance.SpawnPositiveVFX(other.transform.position);
+                   // LevelManager.Instance.SpawnPositiveVFX(other.transform.position);
                 }
                 PlayerSingleton.Instance.UpdatePlayerEnergy(obstacleHandler.GetEnergy);
                 Destroy(other.gameObject);

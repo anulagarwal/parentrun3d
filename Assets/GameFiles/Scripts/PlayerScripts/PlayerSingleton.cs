@@ -279,13 +279,14 @@ public class PlayerSingleton : MonoBehaviour
         {
             playerEnergyBars[energyBarIndex-1].enabled = true;
             remarkTxt.SetText(remarks[energyBarIndex-1]);
-
+            remarkTxt.color = playerEnergyBars[energyBarIndex - 1].color;
             playerEnergyBar = playerEnergyBars[energyBarIndex-1];
         }
         else
         {
             playerEnergyBars[energyBarIndex].enabled = true;
             remarkTxt.SetText(remarks[energyBarIndex]);
+            remarkTxt.color = playerEnergyBars[energyBarIndex].color;
 
             playerEnergyBar = playerEnergyBars[energyBarIndex];
         }
@@ -304,6 +305,7 @@ public class PlayerSingleton : MonoBehaviour
         }
         playerEnergyBars[energyBarIndex].enabled = true;
         remarkTxt.SetText(remarks[energyBarIndex]);
+        remarkTxt.color = playerEnergyBars[energyBarIndex].color;
 
         playerEnergyBar = playerEnergyBars[energyBarIndex];
         playerEnergyBar.fillAmount = 0;

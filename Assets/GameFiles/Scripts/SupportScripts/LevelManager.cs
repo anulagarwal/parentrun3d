@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
 using UnityEngine.SceneManagement;
+
 public class LevelManager : MonoBehaviour
 {
     #region Properties
@@ -29,6 +30,7 @@ public class LevelManager : MonoBehaviour
 
     private void Start()
     {
+        TinySauce.OnGameStarted();
         SwitchCMCV(CMCV.PlayerCMCV);
     }
     #endregion
@@ -64,7 +66,7 @@ public class LevelManager : MonoBehaviour
 
     public void ChangeLevel(string s)
     {
-        Application.LoadLevel(s);
+        SceneManager.LoadScene(s);
     }
     #endregion
 }
