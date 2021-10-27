@@ -11,9 +11,10 @@ public class BabyCollisionAndTriggerEventsHandler : MonoBehaviour
         {
             if (other.gameObject.TryGetComponent<ScoreTriggerHandler>(out ScoreTriggerHandler scoreTriggerHandler))
             {
-                print("Please enter the code");
+                other.GetComponentInChildren<ParticleSystem>().Play();
             }
-        }    
+        }
+        print(other.gameObject.tag);
     }
     #endregion
 }

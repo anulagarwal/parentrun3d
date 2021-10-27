@@ -33,16 +33,17 @@ public class BabyRunnerCollisionAndTriggerEventsHandler : MonoBehaviour
                 if (obstacleHandler.GetEnergy < 0)
                 {
                     BabyRunnerSingleton.Instance.SpawnNegativeVFX(other.transform.position);
+                    BabyRunnerSingleton.Instance.ScaleDownBaby();
 
-                    BabyRunnerSingleton.Instance.TargetScale -= .5f;
-                    BabyRunnerSingleton.Instance.EnableScaleDown(true);
+                    //  BabyRunnerSingleton.Instance.TargetScale -= .5f;
+                    // BabyRunnerSingleton.Instance.EnableScaleDown(true);
                 }
                 else if (obstacleHandler.GetEnergy > 0)
                 {
                     BabyRunnerSingleton.Instance.SpawnPositiveVFX(other.transform.position);
-
-                    BabyRunnerSingleton.Instance.TargetScale += .5f;
-                    BabyRunnerSingleton.Instance.EnableScaleUp(true);
+                    BabyRunnerSingleton.Instance.ScaleUpBaby();
+                    //BabyRunnerSingleton.Instance.TargetScale += .5f;
+                    //BabyRunnerSingleton.Instance.EnableScaleUp(true);
                 }
 
                 //PlayerSingleton.Instance.UpdatePlayerEnergy(obstacleHandler.GetEnergy);

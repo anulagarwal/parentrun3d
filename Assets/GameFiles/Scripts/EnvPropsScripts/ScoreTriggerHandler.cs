@@ -9,6 +9,10 @@ public class ScoreTriggerHandler : MonoBehaviour
     [SerializeField] private int score = 0;
     #endregion
 
+    private void OnTriggerEnter(Collider other)
+    {
+        GetComponentInChildren<ParticleSystem>().Play();
+    }
     #region Getter And Setter
     public int GetScore { get => score; }
     #endregion

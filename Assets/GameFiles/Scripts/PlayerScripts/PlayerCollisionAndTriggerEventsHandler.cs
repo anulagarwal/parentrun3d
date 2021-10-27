@@ -24,7 +24,8 @@ public class PlayerCollisionAndTriggerEventsHandler : MonoBehaviour
             BabySingleton.Instance.DerackBaby();
             PlayerSingleton.Instance.EnablePlayerHingeJoint(false);
             PlayerSingleton.Instance.EnableCanvas(false);
-            Invoke("MoveToEndPoint", 2f);           
+            Invoke("MoveToEndPoint", 2f);
+            Invoke("BabyRun", 0.8f);
         }
         else if (other.gameObject.tag == "Obstacle")
         {
@@ -41,7 +42,7 @@ public class PlayerCollisionAndTriggerEventsHandler : MonoBehaviour
                     {
                         
                     }
-                   // LevelManager.Instance.SpawnNegativeVFX(other.transform.position);
+                    LevelManager.Instance.SpawnNegativeVFX(other.transform.position);
                     BabySingleton.Instance.ScaleDownBaby();
 
                 }
@@ -58,7 +59,7 @@ public class PlayerCollisionAndTriggerEventsHandler : MonoBehaviour
                     }
                     BabySingleton.Instance.ScaleUpBaby();
 
-                   // LevelManager.Instance.SpawnPositiveVFX(other.transform.position);
+                    LevelManager.Instance.SpawnPositiveVFX(other.transform.position);
                 }
                 PlayerSingleton.Instance.UpdatePlayerEnergy(obstacleHandler.GetEnergy);
                 Destroy(other.gameObject);
@@ -146,6 +147,12 @@ public class PlayerCollisionAndTriggerEventsHandler : MonoBehaviour
     {
         PlayerSingleton.Instance.GetPlayerMovementHandler.enabled = true;
         PlayerSingleton.Instance.GetPlayerMovementHandler.EnablePlayerMoveTowardsMechanic(true);
+    }
+
+    void BabyRun()
+    {
+        LevelManager.Instance.SwitchCMCV(CMCV.BabyCMCV);
+        BabySingleton.Instance.GetBabyMovementHandler.enabled = true;
     }
     #endregion
 }

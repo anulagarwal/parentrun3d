@@ -15524,7 +15524,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4392390333752543621, guid: 9fa7675ff7af0431197476dce0ad11cc, type: 3}
       propertyPath: moveSpeed
-      value: 20
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 4392390333752543623, guid: 9fa7675ff7af0431197476dce0ad11cc, type: 3}
       propertyPath: canvas
@@ -15595,6 +15595,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6a353128d9ea8f4ab9349b63e64b7c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1356534319 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3473839287787187122, guid: 9fa7675ff7af0431197476dce0ad11cc, type: 3}
+  m_PrefabInstance: {fileID: 1356534317}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &1356534320
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1356534319}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &1359054629
 PrefabInstance:
   m_ObjectHideFlags: 0

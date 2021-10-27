@@ -50,47 +50,59 @@ public class BabyRunnerSingleton : MonoBehaviour
     #endregion
 
     #region Private Core Functions
-    private void ScaleUpBaby()
+    public void ScaleUpBaby()
     {
-        if (transform.localScale.x < TargetScale)
-        {
-            this.transform.localScale += Vector3.one * scaleSpeed * Time.deltaTime;
-            if (this.transform.localScale.x > maxScale)
-            {
-                this.transform.localScale = new Vector3(maxScale, maxScale, maxScale);
-            }
+        /* if (transform.localScale.x < TargetScale)
+         {
+             this.transform.localScale += Vector3.one * scaleSpeed * Time.deltaTime;
+             if (this.transform.localScale.x > maxScale)
+             {
+                 this.transform.localScale = new Vector3(maxScale, maxScale, maxScale);
+             }
 
-            if (TargetScale > maxScale)
-            {
-                TargetScale = maxScale;
-                EnableScaleUp(false);
-            }
-        }
-        else
+             if (TargetScale > maxScale)
+             {
+                 TargetScale = maxScale;
+                 EnableScaleUp(false);
+             }
+         }
+         else
+         {
+             EnableScaleUp(false);
+         }*/
+        this.transform.localScale += Vector3.one * scaleSpeed;
+        if (this.transform.localScale.x > maxScale)
         {
-            EnableScaleUp(false);
+            this.transform.localScale = new Vector3(maxScale, maxScale, maxScale);
         }
     }
 
-    private void ScaleDownBaby()
+    public void ScaleDownBaby()
     {
-        if (transform.localScale.x > TargetScale)
-        {
-            this.transform.localScale -= Vector3.one * scaleSpeed * Time.deltaTime;
-            if (this.transform.localScale.x < minScale)
-            {
-                this.transform.localScale = new Vector3(minScale, minScale, minScale);
-            }
+        /*  if (transform.localScale.x > TargetScale)
+          {
+              this.transform.localScale -= Vector3.one * scaleSpeed * Time.deltaTime;
+              if (this.transform.localScale.x < minScale)
+              {
+                  this.transform.localScale = new Vector3(minScale, minScale, minScale);
+              }
 
-            if (TargetScale < minScale)
-            {
-                TargetScale = minScale;
-                EnableScaleDown(false);
-            }
-        }
-        else
+              if (TargetScale < minScale)
+              {
+                  print("min scale");
+                  TargetScale = minScale;
+                  EnableScaleDown(false);
+              }
+          }
+          else
+          {
+              EnableScaleDown(false);
+          }*/
+
+        this.transform.localScale -= Vector3.one * scaleSpeed;
+        if (this.transform.localScale.x < minScale)
         {
-            EnableScaleDown(false);
+            this.transform.localScale = new Vector3(minScale, minScale, minScale);
         }
     }
     #endregion

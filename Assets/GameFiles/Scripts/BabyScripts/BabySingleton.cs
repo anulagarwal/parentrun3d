@@ -57,8 +57,7 @@ public class BabySingleton : MonoBehaviour
         {
             this.transform.localScale = new Vector3(maxScale, maxScale, maxScale);
         }
-
-        
+       
     }
 
 

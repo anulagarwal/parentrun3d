@@ -98,10 +98,10 @@ public class PlayerMovementHandler : MonoBehaviour
         }
         else
         {
-            LevelManager.Instance.SwitchCMCV(CMCV.BabyCMCV);
+          
             playerMovementCore = null;
-            EnablePlayerTranslation(true);
-            BabySingleton.Instance.GetBabyMovementHandler.enabled = true;
+            this.enabled = false;
+           // EnablePlayerTranslation(true);          
         }
     }
     #endregion
